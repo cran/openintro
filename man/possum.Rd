@@ -23,7 +23,7 @@ Data representing possums in Australia and New Guinea. This is a copy of the dat
 Lindenmayer, D. B., Viggers, K. L., Cunningham, R. B., and Donnelly, C. F. 1995. Morphological variation among columns of the mountain brushtail possum, Trichosurus caninus Ogilby (Phalangeridae: Marsupiala). Australian Journal of Zoology 43: 449-458.
 }
 \references{
-\url{http://www.openintro.com/}
+\url{http://www.openintro.org/}
 }
 \examples{
 data(possum)

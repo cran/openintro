@@ -30,6 +30,8 @@ This data set includes all auctions for a full week in October, 2009. Auctions w
 }
 \references{
 \url{http://www.ebay.com/}
+
+\url{http://www.openintro.org/}
 }
 \examples{
 data(marioKart)

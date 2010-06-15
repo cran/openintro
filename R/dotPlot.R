@@ -76,7 +76,7 @@ function(x, fact=NULL, vertical=FALSE, at=1, key=NULL, pch=20, col=fadeColor('bl
 			plot(x,y,axes=FALSE,xlim=xlim, ylim=ylim, pch=pch[1], col=col[1], cex=cex[1], ...)
 		}
 	}
-	if(axes & !add){
+	if(axes & !add & is.null(fact[1])){
 		axis(vertical+1)
 	}
 }

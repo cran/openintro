@@ -17,7 +17,7 @@ Date: \tab 2009-12-13\cr
 License: \tab GPL-2\cr
 LazyLoad: \tab yes\cr
 }
-\code{\link{boxPlot}}, \code{\link{densityPlot}}, \code{\link{dotPlot}}, \code{\link{histPlot}}, \code{\link{cars}}, \code{\link{marioKart}}, \code{\link{possum}}, \code{\link{run10}}
+\code{\link{boxPlot}}, \code{\link{buildAxis}}, \code{\link{densityPlot}}, \code{\link{dotPlot}}, \code{\link{histPlot}}, \code{\link{normTail}}, \code{\link{cars}}, \code{\link{marioKart}}, \code{\link{possum}}, \code{\link{run10}}, \code{\link{satGPA}}, \code{\link{textbooks}}
 }
 \author{
 David M Diez and Christopher D Barr
@@ -77,4 +77,27 @@ axis(1)
 boxPlot(cars$price, width=0.03, horiz=TRUE, add=0.067, axes=FALSE)
 dotPlot(cars$price, at=0.095, add=TRUE)
 densityPlot(cars$price, add=TRUE)
+
+#===> controlling the number of axis labels <===#
+#     specify the number of labels
+data(textbooks)
+x <- textbooks$diff
+par(mfrow=c(3,1))
+histPlot(x, axes=FALSE)
+buildAxis(1, x, n=4, nMin=4, nMax=4)
+histPlot(x, axes=FALSE)
+buildAxis(1, x, n=5, nMin=5, nMax=5)
+histPlot(x, axes=FALSE)
+# no decent axis is found for this data with exactly six labels
+# no min or max specified, only a target number of labels:
+buildAxis(1, x, n=6)
+
+#===> creating normal plots with tails <===#
+par(mfrow=c(2,3), mar=c(3,3,1,1), mgp=c(1.7, 0.7, 0))
+normTail(L=-2)
+normTail(U=1, xLab='symbol', cex.axis=0.7)
+normTail(M=c(-2,-0.3), col='#22558833')
+normTail(5, 13, L=-5, M=c(0,3), U=12, xAxisIncr=2)
+normTail(102, 4, xlim=c(97,110), M=c(100,103))
+normTail(-10.0, 5.192, M=c(-5,2), digits=1, xAxisIncr=2)
 }
