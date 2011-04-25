@@ -28,6 +28,7 @@ str(gradesTV)
 plot(gradesTV)
 makeTube(gradesTV$TV, gradesTV$Grades, 1.5, type='robust', homosk=FALSE)
 
-lmPlot(gradesTV$TV, gradesTV$Grades, xAxis=4, xlab='time watching TV', yR=0.2, highlight=c(1,15,20))
+lmPlot(gradesTV$TV, gradesTV$Grades, xAxis=4, xlab='time watching TV',
+	yR=0.2, highlight=c(1,15,20))
 }
 \keyword{datasets, correlation, regression}

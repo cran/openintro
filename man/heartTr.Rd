@@ -30,7 +30,8 @@ Turnbull B, Brown B, and Hu M (1974). "Survivorship of heart transplant data." J
 \examples{
 data(heartTr)
 str(heartTr) 
-boxPlot(heartTr$survtime, heartTr$transplant, ylab = 'Survival Time (days)')
+boxPlot(heartTr$survtime, heartTr$transplant,
+	ylab = 'Survival Time (days)')
 mosaicplot(~ transplant + survived, data = heartTr)
 }
 \keyword{datasets}

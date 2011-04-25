@@ -1,0 +1,1341 @@
+Y
+plot(x, Y[,1]/nr, pch=19, cex=sqrt(nr), col="#22558844", xlim=c(20, 80), ylim=c(0, 1))#
+X  <- seq(0, 100, 0.1)#
+lo <- -5.6079 + 0.1009*X#
+p  <- exp(lo)/(1+exp(lo))#
+lines(X, p)#
+abline(h=0:1, lty=2, col="#888888")
+library(openintro)
+?houseRace
+?houseRace10
+data(houseRace10)#
+hr <- table(houseRace10[,c("abbr", "party1")])#
+nr <- apply(hr, 1, sum)#
+data(prRace08)#
+pr <- prRace08[,c("state", "pObama")]#
+x  <- pr$pObama[pr$state != "DC"]#
+y  <- (hr[,"Democrat"]+0.5)/(nr+1)#
+#
+x1 <- pr$pObama[match(houseRace10$abbr, pr$state)]#
+y1 <- (houseRace10$party1 == "Democrat")+0#
+#
+plot(x, y, pch=19, cex=1.5, col="#22558844")#
+X  <- seq(20, 80, 0.1)#
+lo <- -5.6079 + 0.1009*X#
+p  <- exp(lo)/(1+exp(lo))#
+lines(X, p)#
+points(x1, y1)
+data(houseRace10)#
+hr <- table(houseRace10[,c("abbr", "party1")])#
+nr <- apply(hr, 1, sum)#
+data(prRace08)#
+pr <- prRace08[,c("state", "pObama")]#
+x  <- pr$pObama[pr$state != "DC"]#
+y  <- (hr[,"Democrat"]+0.5)/(nr+1)#
+Y  <- cbind(hr[,"Democrat"], nr-hr[,"Democrat"])#
+glm(Y ~ x, family=binomial)#
+#
+x1 <- pr$pObama[match(houseRace10$abbr, pr$state)]#
+y1 <- (houseRace10$party1 == "Democrat")+0#
+glm(y1 ~ x1, family=binomial)#
+#
+#
+plot(x, Y[,1]/nr, pch=19, cex=sqrt(nr), col="#22558844", xlim=c(20, 80), ylim=c(0, 1))#
+X  <- seq(0, 100, 0.1)#
+lo <- -5.6079 + 0.1009*X#
+p  <- exp(lo)/(1+exp(lo))#
+lines(X, p)#
+abline(h=0:1, lty=2, col="#888888")
+g  <- glm(y1 ~ x1, family=binomial)
+summary(g)
+plot(g)
+Y
+Y  <- cbind(hr[,"Democrat"], nr) #-hr[,"Democrat"])
+Y
+glm(Y ~ x, family=binomial)
+glm(Y[,1] ~ Y[,2] + x, family=binomial)
+?glm(Y ~ x, family=binomial)
+library(faraway)
+?orings
+data(orings)
+orings
+glm(cbind(damage,6-damage) ~ temp, family=binomial, orings)
+summary(glm(cbind(damage,6-damage) ~ temp, family=binomial, orings))
+summary(glm(cbind(hr["Democrats"],nr-hr["Democrats"]) ~ pr$pObama, family=binomial))
+pr
+x
+summary(glm(cbind(hr["Democrats"],nr-hr["Democrats"]) ~ x, family=binomial))
+x
+summary(glm(cbind(hr[,"Democrats"],nr-hr[,"Democrats"]) ~ x, family=binomial))
+nr-hr[,"Democrats"]
+hr[1:5,]
+summary(glm(cbind(hr[,"Democrat"],nr-hr[,"Democrat"]) ~ x, family=binomial))
+cbind(hr, pr[pr$state != "DC",])
+h4
+hr
+pr[pr$state != "DC",]
+dim(pr[pr$state != "DC",])
+dim(hr)
+data.frame(hr, pr[pr$state != "DC",])
+data.frame(data.frame(hr), pr[pr$state != "DC",])
+data.frame(hr[,1], hr[,2], pr[pr$state != "DC",])
+hr
+data.frame(rownames(hr), hr[,1], pr[pr$state != "DC",])
+data(prRace08)#
+pr <- prRace08[,c("state", "pObama")]
+pr
+pr <- prRace08[prRace08$state != "DC",c("state", "pObama")]
+pr
+hr[pr$state,]
+pr$state
+hr[as.character(pr$state),]
+rownames(hr)
+hr["AK",]
+as.character(pr$state)
+hr[as.character(pr$state)[1],]
+hr[as.character(pr$state),]
+as.character(pr$state)
+as.character(pr$state) -> temp
+hr[temp[1:5],]
+hr[temp[1:7],]
+hr[temp[1:10],]
+hr[temp[1:50],]
+hr[temp[1:49],]
+dim(hr)
+hr[temp[1:39],]
+hr[temp[1:29],]
+hr[temp[1:25],]
+hr[temp[1:15],]
+hr[temp[1:20],]
+hr[temp[1:18],]
+hr[temp[1:17],]
+hr[temp[1:16],]
+hr[temp[1:15],]
+temp[16]
+prRace08[1:16,]
+prRace08[1:17,]
+prRace08[17,1]
+prRace08[17,1] <- "KS"
+prRace08$state <- as.character(prRace08$state)
+prRace08[17,1] <- "KS"
+prRace08[17,1]
+prRace08$state <- as.factor(prRace08$state)
+prRace08[1:17,]
+save(prRace08, file="prRace08.rda")
+library(openintro)
+?mlbBat10
+data(mlbBat10)#
+d   <- mlbBat10[mlbBat10$AB > 200,]#
+pos <- list(c("OF"), c("1B", "2B", "3B", "SS"), "DH", "C")#
+POS <- c("OF", "IF", "DH", "C")#
+#
+#=====> Batting Average Across Positions <=====##
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos #
+	out   <- c(out, d[these,"AVE"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+plot(out ~ as.factor(gp))#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))
+library(openintro)
+?mlbBat10
+data(mlbBat10)#
+d   <- mlbBat10[mlbBat10$AB > 200,]#
+pos <- list(c("OF"), c("1B", "2B", "3B", "SS"), "DH", "C")#
+POS <- c("OF", "IF", "DH", "C")#
+#
+#=====> Batting Average Across Positions <=====##
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"AVE"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+plot(out ~ as.factor(gp))#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))
+gp
+out
+these
+d[1:5,]
+#
+#=====> Home Runs Across Positions <=====##
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"HR"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+plot(out ~ as.factor(gp))#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))
+library(openintro)
+?mlbBat10
+data(mlbBat10)#
+d   <- mlbBat10[mlbBat10$AB > 200,]#
+pos <- list(c("OF"), c("1B", "2B", "3B", "SS"), "DH", "C")#
+POS <- c("OF", "IF", "DH", "C")#
+#
+#=====> Batting Average Across Positions <=====##
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"AVG"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+plot(out ~ as.factor(gp))#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))
+#
+#=====> Home Runs Across Positions <=====##
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"HR"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+plot(out ~ as.factor(gp))#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))
+data(mlbBat10)#
+d   <- mlbBat10[mlbBat10$AB > 200,]#
+pos <- list(c("OF"), c("1B", "2B", "3B", "SS"), "DH", "C")#
+POS <- c("OF", "IF", "DH", "C")#
+#
+#=====> Batting Average Across Positions <=====##
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"AVG"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+plot(out ~ as.factor(gp))#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))
+#
+#=====> Home Runs Across Positions <=====##
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"HR"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+dotPlot(out, as.factor(gp))#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))
+#
+#=====> Home Runs Across Positions <=====##
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"HR"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+dotPlot(out, as.factor(gp), col="#00000011")#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))
+#
+#=====> Home Runs Across Positions <=====##
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"HR"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+dotPlot(out, as.factor(gp), col="#00000022")#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))
+data(mlbBat10)#
+d   <- mlbBat10[mlbBat10$AB > 200,]#
+pos <- list(c("OF"), c("1B", "2B", "3B", "SS"), "DH", "C")#
+POS <- c("OF", "IF", "DH", "C")#
+#
+#=====> Batting Average Across Positions <=====##
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"AVG"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+plot(out ~ as.factor(gp), col="#00000011")#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))
+data(mlbBat10)#
+d   <- mlbBat10[mlbBat10$AB > 200,]#
+pos <- list(c("OF"), c("1B", "2B", "3B", "SS"), "DH", "C")#
+POS <- c("OF", "IF", "DH", "C")#
+#
+#=====> Batting Average Across Positions <=====##
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"AVG"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+plot(out, as.factor(gp), col="#00000011")#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))
+data(mlbBat10)#
+d   <- mlbBat10[mlbBat10$AB > 200,]#
+pos <- list(c("OF"), c("1B", "2B", "3B", "SS"), "DH", "C")#
+POS <- c("OF", "IF", "DH", "C")#
+#
+#=====> Batting Average Across Positions <=====##
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"AVG"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+dotPlot(out, as.factor(gp), col="#00000011")#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))
+data(mlbBat10)#
+d   <- mlbBat10[mlbBat10$AB > 200,]#
+pos <- list(c("OF"), c("1B", "2B", "3B", "SS"), "DH", "C")#
+POS <- c("OF", "IF", "DH", "C")#
+#
+#=====> Batting Average Across Positions <=====##
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"AVG"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+dotPlot(out, as.factor(gp), col="#00000022")#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))
+d[1:5,]
+#=====> Runs Batted In Across Positions <=====##
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos \%in\% pos[[i]])#
+	out   <- c(out, d[these,"RBI"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+plot(out ~ as.factor(gp))#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))
+#=====> Runs Batted In Across Positions <=====##
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"RBI"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+plot(out ~ as.factor(gp))#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))
+?.First.lib
+.on.load
+.onload
+.onLoad
+?.onLoad
+?package.skeleton
+?.onLoad
+library(openintro)
+.onLoad
+?.Call
+library(openintro)
+library(MASS)
+library(openintro)
+data(senateRace10)
+senateRace10
+table(senateRace10$party1)
+hist(senateRace10$perc1)
+histPlot(senateRace10$perc1)
+library(openintro)
+histPlot(senateRace10$perc1)
+?histPlot
+`histPlot` <-#
+function(x, col=fadeColor('black', '22'), border='black', breaks="default", probability=FALSE, hollow=FALSE, add=FALSE, lty=2, lwd=1, freqTable=FALSE, right=TRUE, axes=TRUE, xlab=NULL, ylab=NULL, xlim=NULL, ylim=NULL, ...){#
+	if(breaks[1] == 'default'){#
+		breaks <- 'Sturges'#
+	}#
+	if(freqTable){#
+		nObs <- sum(x[,2])#
+		xR   <- range(x[,1])#
+		xR   <- xR + c(-1,1)*diff(xR)/10^5#
+		H    <- list()#
+		if(is.character(breaks)[1]){#
+			breaks <- 10#
+		}#
+		if(length(breaks) == 1){#
+			H$breaks <- pretty(xR, n=breaks, min.n=1)#
+		} else {#
+			H$breaks <- breaks#
+		}#
+		H$mids <- H$breaks[-1] - diff(H$breaks)/2#
+		H$counts <- rep(0, length(H$mids))#
+		for(i in 1:length(H$counts)){#
+			if(right){#
+				temp <- which(x[,1] <= H$breaks[i+1] & x[,1] > H$breaks[i])#
+			} else {#
+				temp <- which(x[,1] < H$breaks[i+1] & x[,1] >= H$breaks[i])#
+			}#
+			H$counts[i] <- sum(x[temp,2])#
+		}#
+		H$density <- (H$counts/sum(H$counts))/diff(H$breaks)#
+	} else {#
+		if(length(breaks) > 1 && is.numeric(breaks)[1]){#
+			H <- hist(x, breaks=breaks, plot=FALSE, right=right, include.lowest=FALSE)#
+		} else {#
+			H <- hist(x, breaks=breaks, plot=FALSE, right=right)#
+		}#
+	}#
+	br <- H$breaks#
+	mi <- H$mids#
+	y <- H$counts#
+	if(probability){#
+		y <- H$density#
+	}#
+	if(is.null(ylab)){#
+		ylab <- 'frequency'#
+		if(probability){#
+			ylab <- 'density'#
+		}#
+	}#
+	if(is.null(xlab)){#
+		xlab <- H$xname#
+	}#
+	if(is.null(xlim)){#
+		xlim <- range(br)#
+	}#
+	if(is.null(ylim)){#
+		ylim=c(0,max(y))#
+	}#
+	if(!add){#
+		plot(x, xlim=xlim, ylim=ylim, type='n', axes=FALSE, ylab=ylab, xlab=xlab, ...)#
+		abline(h=0)#
+		if(axes){#
+			axis(1)#
+			axis(2)#
+		}#
+	}#
+	if(hollow){#
+		n  <- length(H$breaks)#
+		br <- c(br[1], br)#
+		y  <- c(0, y, 0)#
+		points(br, y, type='s', col=border, lty=lty, lwd=lwd)#
+	} else {#
+		miL <- length(mi)#
+		for(i in 1:miL){#
+			rect(br[i], 0, br[i+1], y[i],#
+				border='#ffffff00', col=col)#
+			lines(rep(br[i],2), c(0,y[i]), col=border)#
+			lines(br[i:(i+1)], rep(y[i],2), col=border)#
+			if(i > 1){#
+				if(y[i] < y[i-1]){#
+					lines(rep(br[i],2), y[(i-1):i], col=border)#
+				}#
+			}#
+		}#
+		lines(rep(br[miL+1],2), c(0,y[miL]), col=border)#
+	}#
+}
+histPlot(senateRace10$perc1)
+library(openintro)
+data(senateRace10)#
+table(senateRace10$party1)#
+histPlot(senateRace10$perc1)
+library(openintro)
+data(senateRace10)#
+table(senateRace10$party1)#
+histPlot(senateRace10$perc1)
+?mlbBat10
+data(mlbBat10)#
+d   <- mlbBat10[mlbBat10$AB > 200,]#
+pos <- list(c("OF"), c("1B", "2B", "3B", "SS"), "DH", "C")#
+POS <- c("OF", "IF", "DH", "C")#
+#
+#=====> Batting Average Across Positions <=====##
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"AVG"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+plot(out ~ as.factor(gp))#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))
+#
+#=====> Home Runs Across Positions <=====##
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"HR"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+plot(out ~ as.factor(gp))#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))
+#
+#=====> Runs Batted In Across Positions <=====##
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"RBI"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+plot(out ~ as.factor(gp))#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))
+library(openintro)
+.onLoad
+library(openintro)
+data(mlbBat10)
+mlbBat10
+d <- mlbBat10[mlbBat10$AB > 200,]
+dim(d)
+library(xtable)
+d[1:5,]
+dd <- d[,c("name", "team", "position", "AB", "H", "HR", "AVG")]
+dd
+xtable(dd)
+dd[1:3,]
+dd[325:327,]
+dd$H/dd$AB[1:3]
+dd$H[1:3]/dd$AB[1:3]
+dd$H[1:3+324]/dd$AB[1:3+324]
+dd[1:3,]
+dd[325:327,]
+dd <- d[,c("name", "team", "position", "AB", "H", "HR", "RBI", "AVG")]
+dd[1:3,]
+dd[325:327,]
+?mlbBat10
+data(mlbBat10)#
+d   <- mlbBat10[mlbBat10$AB > 200,]#
+pos <- list(c("OF"), c("1B", "2B", "3B", "SS"), "DH", "C")#
+POS <- c("OF", "IF", "DH", "C")#
+#
+#=====> Batting Average Across Positions <=====##
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"AVG"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+plot(out ~ as.factor(gp))#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))
+dd[1:3,]
+dd[1:3+324,]
+?mlbBat10
+#=====> Home Runs Across Positions <=====##
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"HR"] / d[these,"AB"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+plot(out ~ as.factor(gp))#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))
+data(mlbBat10)#
+d   <- mlbBat10[mlbBat10$AB > 200,]#
+pos <- list(c("OF"), c("1B", "2B", "3B", "SS"), "DH", "C")#
+POS <- c("OF", "IF", "DH", "C")#
+#
+#=====> Batting Average Across Positions <=====##
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"AVG"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+plot(out ~ as.factor(gp))#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))
+#=====> Home Runs Across Positions <=====##
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"HR"] / d[these,"AB"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+plot(out ~ as.factor(gp))#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))
+library(openintro)#
+data(mlbBat10)#
+d <- mlbBat10[mlbBat10$AB > 200,]
+boxPlot(out, gp, xlab="Position", ylab="Home runs per at bat")
+library(openintro)#
+data(mlbBat10)#
+d   <- mlbBat10[mlbBat10$AB > 200,]#
+pos <- list(c("OF"), c("1B", "2B", "3B", "SS"), "DH", "C")#
+POS <- c("OF", "IF", "DH", "C")#
+#
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"AVG"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))#
+#
+#myPDF("")#
+boxPlot(out, gp, xlab="Position", ylab="Home runs per at bat", axes=FALSE)#
+axis(1, 1:4, pos)#
+#
+#dev.off()
+library(openintro)#
+data(mlbBat10)#
+d   <- mlbBat10[mlbBat10$AB > 200,]#
+pos <- list(c("OF"), c("1B", "2B", "3B", "SS"), "DH", "C")#
+POS <- c("OF", "IF", "DH", "C")#
+#
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"AVG"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))#
+#
+#myPDF("")#
+boxPlot(out, gp, xlab="Position", ylab="Home runs per at bat", axes=FALSE)#
+axis(1, 1:4, POS)#
+#
+#dev.off()
+library(openintro)#
+data(mlbBat10)#
+d   <- mlbBat10[mlbBat10$AB > 200,]#
+pos <- list(c("OF"), c("1B", "2B", "3B", "SS"), "DH", "C")#
+POS <- c("OF", "IF", "DH", "C")#
+#
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"AVG"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))#
+#
+#myPDF("")#
+boxPlot(out, gp, xlab="Position", ylab="Home runs per at bat", axes=FALSE)#
+axis(1, 1:4, rev(POS))#
+#
+#dev.off()
+library(openintro)#
+data(mlbBat10)#
+d   <- mlbBat10[mlbBat10$AB > 200,]#
+pos <- list(c("OF"), c("1B", "2B", "3B", "SS"), "DH", "C")#
+POS <- c("OF", "IF", "DH", "C")#
+#
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"HR"] / d[these,"AB"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))#
+#
+#myPDF("")#
+boxPlot(out, gp, xlab="Position", ylab="Home runs per at bat", axes=FALSE)#
+axis(1, 1:4, rev(POS))#
+#
+#dev.off()
+library(openintro)#
+data(mlbBat10)#
+d   <- mlbBat10[mlbBat10$AB > 200,]#
+pos <- list(c("OF"), c("1B", "2B", "3B", "SS"), "DH", "C")#
+POS <- c("OF", "IF", "DH", "C")#
+#
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"HR"] / d[these,"AB"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))#
+#
+#myPDF("")#
+boxPlot(out, gp, xlab="Position", ylab="Home runs per at bat", axes=FALSE)#
+axis(1, 1:4, rev(POS))#
+axis(2)#
+#dev.off()
+library(openintro)#
+data(mlbBat10)#
+d   <- mlbBat10[mlbBat10$AB > 200,]#
+pos <- list(c("OF"), c("1B", "2B", "3B", "SS"), "DH", "C")#
+POS <- c("OF", "IF", "DH", "C")#
+#
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"HR"] / d[these,"AB"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))#
+#
+#myPDF("")#
+boxPlot(out, gp, xlab="Position", ylab="Home runs per at bat", axes=FALSE)#
+axis(1, 1:4, rev(POS))#
+axis(2, at=seq(0, 0.1, 0.5))#
+#dev.off()
+library(openintro)#
+data(mlbBat10)#
+d   <- mlbBat10[mlbBat10$AB > 200,]#
+pos <- list(c("OF"), c("1B", "2B", "3B", "SS"), "DH", "C")#
+POS <- c("OF", "IF", "DH", "C")#
+#
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"HR"] / d[these,"AB"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))#
+#
+#myPDF("")#
+boxPlot(out, gp, xlab="Position", ylab="Home runs per at bat", axes=FALSE)#
+axis(1, 1:4, rev(POS))#
+axis(2, at=seq(0, 0.1, 0.05))#
+#dev.off()
+rm(list=ls())#
+library(openintro)#
+data(mlbBat10)#
+d   <- mlbBat10[mlbBat10$AB > 200,]#
+pos <- list(c("OF"), c("1B", "2B", "3B", "SS"), "DH", "C")#
+POS <- c("OF", "IF", "DH", "C")#
+#
+out <- c()#
+gp  <- c()#
+for(i in 1:length(pos)){#
+	these <- which(d$pos %in% pos[[i]])#
+	out   <- c(out, d[these,"HR"] / d[these,"AB"])#
+	gp    <- c(gp, rep(POS[i], length(these)))#
+}#
+summary(lm(out ~ as.factor(gp)))#
+anova(lm(out ~ as.factor(gp)))#
+#
+#myPDF("")#
+boxPlot(out, gp, xlab="Position", ylab="Home runs per at bat", axes=FALSE)#
+axis(1, 1:4, rev(POS))#
+axis(2, at=seq(0, 0.1, 0.05))#
+#dev.off()
+library(openintro)
+?openintro
+data(run10)#
+par(mfrow=1:2)#
+#
+#===> comparison 1 <===##
+boxPlot(run10$time)#
+boxplot(run10$time)
+#
+#===> comparison 2 <===##
+boxPlot(run10$time, run10$gender, col=fadeColor('black', '22'))#
+boxplot(run10$time ~ run10$gender)
+#
+#===> modifications using boxPlot <===##
+par(mfrow=c(2,2))#
+boxPlot(run10$time, run10$gender)#
+boxPlot(run10$time, run10$gender, xlab='gender',#
+	ylab='run time (min)',#
+	col=fadeColor('black', '18'))#
+plot(0,0, xlab='gender', ylab='run time (min)',#
+	xlim=c(0,6), ylim=c(30, 180), axes=FALSE)#
+boxPlot(run10$time, run10$gender, width=0.5, lwd=2,#
+	lcol=4, medianLwd=4, pch=1, pchCex=1, col=4,#
+	add=c(1,2,5), key=c('M','F','N'))#
+plot(0,0, ylab='gender', xlab='run time (min)',#
+	xlim=c(30, 180), ylim=c(0, 3), axes=FALSE)#
+boxPlot(run10$time, run10$gender, horiz=TRUE,#
+	xlab='run time (min)', ylab='gender',#
+	add=1:2, key=c('F','M'))#
+# 'key' can be used to restrict to only the#
+# desired groups
+#===> combine boxPlot and dotPlot <===##
+data(tips)#
+par(mfrow=c(1,1))#
+boxPlot(tips$tip, tips$day, horiz=TRUE, key=c('Tuesday', 'Friday'))#
+dotPlot(tips$tip, tips$day, add=TRUE, at=1:2+0.05,#
+	key=c('Tuesday', 'Friday'))
+#
+#===> adding a box <===##
+par(mfrow=1:2)#
+boxPlot(run10$time[run10$gender=='M'], xlim=c(0,3))#
+boxPlot(run10$time[run10$gender=='F'], add=2, axes=FALSE)#
+axis(1, at=1:2, labels=c('M', 'F'))#
+boxPlot(run10$time[run10$gender=='M'], ylim=c(0,3), horiz=TRUE)#
+boxPlot(run10$time[run10$gender=='F'], add=2, horiz=TRUE, axes=FALSE)#
+axis(2, at=1:2, labels=c('M', 'F'))
+#===> 0 <===##
+limits <- rnorm(100, 605490, 10)#
+hist(limits, axes=FALSE)#
+buildAxis(1, limits, 2, nMax=4)
+#
+#===> 1 <===##
+x <- seq(0, 500, 10)#
+y <- 8*x+rnorm(length(x), mean=6000, sd=200)#
+plot(x, y, axes=FALSE)#
+buildAxis(1, limits=x, n=5)#
+buildAxis(2, limits=y, n=3)
+#
+#===> 2 <===##
+x <- 9528412 + seq(0, 200, 10)#
+y <- 8*x+rnorm(length(x), mean=6000, sd=200)#
+plot(x, y, axes=FALSE)#
+temp <- buildAxis(1, limits=x, n=4)#
+buildAxis(2, y, 3)
+#
+#===> 3 <===##
+x <- seq(367, 1251, 10)#
+y <- 7.5*x+rnorm(length(x), mean=6000, sd=800)#
+plot(x, y, axes=FALSE)#
+buildAxis(1, limits=x, n=4, nMin=3, nMax=3)#
+buildAxis(2, limits=y, n=4, nMin=3, nMax=5)
+#
+#===> 4 <===##
+x <- seq(367, 367.1, 0.001)#
+y <- 7.5*x+rnorm(length(x), mean=6000, sd=0.01)#
+plot(x, y, axes=FALSE)#
+buildAxis(1, limits=x, n=4, nMin=5, nMax=6)#
+buildAxis(2, limits=y, n=2, nMin=3, nMax=4)
+#
+#===> 5 <===##
+x <- seq(-0.05, -0.003, 0.0001)#
+y <- 50 + 20*x + rnorm(length(x), sd=0.1)#
+plot(x, y, axes=FALSE)#
+buildAxis(1, limits=x, n=4, nMin=5, nMax=6)#
+buildAxis(2, limits=y, n=4, nMax=5)#
+abline(lm(y ~ x))
+#
+#===> 6 <===##
+x <- seq(-0.0097, -0.008, 0.0001)#
+y <- 50 + 20*x + rnorm(length(x), sd=0.1)#
+plot(x, y, axes=FALSE)#
+buildAxis(1, limits=x, n=4, nMin=2, nMax=5)#
+buildAxis(2, limits=y, n=4, nMax=5)#
+abline(lm(y ~ x))
+#
+#===> 7 <===##
+x <- seq(0.03, -0.003099, -0.00001)#
+y <- 50 + 20*x + rnorm(length(x), sd=0.1)#
+plot(x, y, axes=FALSE)#
+buildAxis(1, limits=x, n=4, nMin=2, nMax=5)#
+buildAxis(2, limits=y, n=4, nMax=6)#
+abline(lm(y ~ x))
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=6, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=6, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=6, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=6, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=6, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=6, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=6, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=6, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=6, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=6, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=6, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=7, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+#
+#===> 8 - repeat <===##
+m <- runif(1)/runif(1) +#
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))#
+x <- rnorm(50, m, s)#
+hist(x, axes=FALSE)#
+buildAxis(1, limits=x, n=5, nMin=4, nMax=5, eps=10^-12)#
+if(diff(range(x)) < 10^-12){#
+	cat("too small\n")#
+}
+?census
+data(census)#
+str(census)#
+these <- census[,3] > 0     # income greater than 0#
+histPlot(log(census$totalFamilyIncome[these]))
+data(census)#
+str(census)#
+these <- census[,3] > 0     # income greater than 0#
+histPlot(log(census$totalFamilyIncome[these]), xlab="log(total family income)")
+data(credits)#
+histPlot(credits$credits)
+?edaPlot
+data(mlbBat10)#
+edaPlot(mlbBat10)
+names(mlbBat10)
+names(mlbBat10)[18]
+names(mlbBat10)[18] <- "SLG"
+save(mlbBat10, file="mlbBat10.rda")
+edaPlot(mlbBat10)
+edaPlot(mlbBat10)
+bat <- mlbBat10[mlbBat10$AB > 200,]
+edaPlot(bat)

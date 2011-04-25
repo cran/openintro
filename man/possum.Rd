@@ -29,7 +29,8 @@ Lindenmayer, D. B., Viggers, K. L., Cunningham, R. B., and Donnelly, C. F. 1995.
 data(possum)
 par(mfrow=1:2)
 plot(possum$headL, possum$skullW)
-densityPlot(possum$totalL, possum$sex, key=c('f','m'), xlab='total length (cm)')
+densityPlot(possum$totalL, possum$sex, key=c('f','m'),
+	xlab='total length (cm)')
 legend('topright', col=c('black', 'red'), lty=1:2, legend=c('f', 'm'))
 }
 \keyword{datasets}

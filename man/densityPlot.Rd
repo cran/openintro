@@ -5,7 +5,15 @@
 Compute kernel density plots, written in the same structure as \code{\link{boxPlot}}. Histograms can be automatically added for teaching purposes.
 }
 \usage{
-densityPlot(x, fact = NULL, bw = "nrd0", histo = c("none", "faded", "hollow"), breaks = "Sturges", fading = "0E", fadingBorder = "25", lty = NULL, lwd = 1, col = c("black", "red", "blue"), key = NULL, add = FALSE, adjust = 1, kernel = c("gaussian", "epanechnikov", "rectangular", "triangular", "biweight", "cosine", "optcosine"), weights = NULL, n = 512, from, to, na.rm = FALSE, xlim = NULL, ylim = NULL, main = "", ...)
+densityPlot(x, fact = NULL, bw = "nrd0",
+	histo = c("none", "faded", "hollow"),
+	breaks = "Sturges", fading = "0E", fadingBorder = "25",
+	lty = NULL, lwd = 1, col = c("black", "red", "blue"),
+	key = NULL, add = FALSE, adjust = 1,
+	kernel = c("gaussian", "epanechnikov", "rectangular",
+		"triangular", "biweight", "cosine", "optcosine"),
+	weights = NULL, n = 512, from, to, na.rm = FALSE,
+	xlim = NULL, ylim = NULL, main = "", ...)
 }
 \arguments{
   \item{x}{ A numerical vector. }
@@ -37,12 +45,17 @@ densityPlot(x, fact = NULL, bw = "nrd0", histo = c("none", "faded", "hollow"), b
 \examples{
 data(tips)
 par(mfrow=c(2,2))
-histPlot(tips$tip[tips$day == 'Tuesday'], hollow=TRUE, xlim=c(0, 30), lty=1, main='Tips by day')
-histPlot(tips$tip[tips$day == 'Friday'], hollow=TRUE, border='red', add=TRUE, main='Tips by day')
-legend('topright', col=c('black', 'red'), lty=1:2, legend=c('Tuesday', 'Friday'))
+histPlot(tips$tip[tips$day == 'Tuesday'], hollow=TRUE, xlim=c(0, 30),
+	lty=1, main='Tips by day')
+histPlot(tips$tip[tips$day == 'Friday'], hollow=TRUE, border='red',
+	add=TRUE, main='Tips by day')
+legend('topright', col=c('black', 'red'), lty=1:2,
+	legend=c('Tuesday', 'Friday'))
 densityPlot(tips$tip, tips$day, col=c('black', 'red'), main='Tips by day')
-legend('topright', col=c('black', 'red'), lty=1:2, legend=c('Tuesday', 'Friday'))
+legend('topright', col=c('black', 'red'), lty=1:2,
+	legend=c('Tuesday', 'Friday'))
 data(run10)
 densityPlot(run10$time, histo='faded', breaks=15, main='Run time')
-densityPlot(run10$time, histo='hollow', breaks=30, fadingBorder='66', lty=1, main='Run time')
+densityPlot(run10$time, histo='hollow', breaks=30, fadingBorder='66',
+	lty=1, main='Run time')
 }

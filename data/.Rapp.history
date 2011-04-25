@@ -1,0 +1,110 @@
+load("/Users/ddiez/Dropbox/oiStatistics/openintro/data/mlbSalaries.rda")
+mlbSalary <- mlbSalaries
+save(MLBsalary=mlbSalary, file="MLBsalary.rda")
+MLBsalary <- mlbSalaries
+save(MLBsalary, file="MLBsalary.rda")
+prompt(MLBsalary)
+MLBsalary$player <- as.character(MLBsalary$player)
+par(mfrow=c(2,2))#
+histPlot(MLBsalary$salary)#
+histPlot(log(MLBsalary$salary))#
+histPlot(log(MLBsalary$salary), axes=FALSE)#
+x <- 10^5*round(exp(seq(1,20,1))/10^5)#
+axis(1, at=log(x), x)#
+dotPlot(MLBsalary$salary, MLBsalary$team)
+library(openintro)
+par(mfrow=c(2,2))#
+histPlot(MLBsalary$salary)#
+histPlot(log(MLBsalary$salary))#
+histPlot(log(MLBsalary$salary), axes=FALSE)#
+x <- 10^5*round(exp(seq(1,20,1))/10^5)#
+axis(1, at=log(x), x)#
+dotPlot(MLBsalary$salary, MLBsalary$team)
+data(MLBsalary)#
+par(mfrow=c(2,2))#
+histPlot(MLBsalary$salary)#
+histPlot(log(MLBsalary$salary))#
+histPlot(log(MLBsalary$salary), axes=FALSE)#
+x <- 10^5*round(exp(seq(2,20,1))/10^5)#
+axis(1, at=log(x), x)#
+dotPlot(log(MLBsalary$salary), MLBsalary$team, vertical=TRUE)
+data(MLBsalary)#
+par(mfrow=c(2,2))#
+histPlot(MLBsalary$salary)#
+histPlot(log(MLBsalary$salary))#
+histPlot(log(MLBsalary$salary), axes=FALSE)#
+x <- 10^5*round(exp(seq(2,20,2))/10^5)#
+axis(1, at=log(x), x)#
+dotPlot(log(MLBsalary$salary), MLBsalary$team, vertical=TRUE)
+load("/Users/ddiez/Dropbox/oiStatistics/openintro/data/MLB.rda")
+prompt(MLB)
+load("/Users/ddiez/Dropbox/oiStatistics/openintro/data/mlbBat10.rda")
+prompt(mlbBat10.rda)
+prompt(mlbBat10)
+load("/Users/ddiez/Dropbox/oiStatistics/openintro/data/MLB.rda")
+ls()
+load("/Users/ddiez/Dropbox/oiStatistics/openintro/data/MLBsalary.rda")
+MLBsalary
+ls()
+identical(MLB, MLBsalary)
+dim(MLB)
+dim(MLBsalary)
+names(MLB)
+names(MLBsalary)
+MLB - MLBsalary
+MLB[1:5,]
+MLBsalary[1:5,]
+library(ssvs)
+?ssvs
+library(help=ssvs)
+data(apData)
+apData[[1]][1:5,]
+lm(PM25_Mass ~ ., apData)
+glm(apData$PM25_Mass ~ apData[,-"PM25_Mass"])
+glm(apData$PM25_Mass ~ apData[,-16])
+lm(PM25_Mass ~ ., apData[[1]])
+glm(PM25_Mass ~ ., apData[[1]])
+glm(PM25_Mass ~ ., apData[[1]], family=binomial) -> hold
+unique(apData[[1]]$PM25_Mass)
+#
+#=====> Preprocessing <=====##
+rm(list=ls())#
+library(ssvs)#
+library(openintro)#
+data(apData)#
+data(apSummary)#
+data(spec.terms)#
+data(scIQR)#
+data(coInfo)#
+siteNames      <- names(apData)#
+nsiteNames     <- length(apData)#
+outcome        <- "CVD"#
+colsOfInterest <- c(outcome, "RESP", "date", "dptp", "tmpd", "denom", spec.terms, "dow", "rmtmpd", "rmdptp")#
+doNotRun       <- c(46)
+i <- 1
+	d       <- apData[[siteNames[i]]][,colsOfInterest]
+d[1:5,]
+	sName   <- paste(rep("0", 5-nchar(siteNames[i])), siteNames[i], sep="")#
+	years   <- as.POSIXlt(d$date)$year + 1900#
+	temp    <- apSummary[sName,]#
+	keep    <- years >= temp['start'] & years <= temp['end']#
+	d       <- na.omit(d[keep,])
+d[1:5,]
+colsOfInterest <- c(outcome, "RESP", "date", "dptp", "tmpd", "denom", spec.terms, "PM25_Mass", "dow", "rmtmpd", "rmdptp")#
+doNotRun       <- c(46)
+	d       <- apData[[siteNames[i]]][,colsOfInterest]#
+	sName   <- paste(rep("0", 5-nchar(siteNames[i])), siteNames[i], sep="")#
+	years   <- as.POSIXlt(d$date)$year + 1900#
+	temp    <- apSummary[sName,]#
+	keep    <- years >= temp['start'] & years <= temp['end']#
+	d       <- na.omit(d[keep,])
+d[1:5,]
+glm(PM25_Mass ~ ., d, family=binomial) -> hold
+lm(PM25_Mass ~ su + ni + si + ec + oc + so, d, family=binomial) -> hold
+lm(PM25_Mass ~ su + ni + si + ec + oc + so, d) -> hold
+hold
+summary(hold)
+lm(PM25_Mass ~ offset(su) + offset(ni) + offset(si) + offset(ec) + offset(oc) + so, d) -> hold
+summary(hold)
+lm(PM25_Mass ~ offset(su) + offset(ni) + offset(si) + offset(ec) + oc + so, d) -> hold
+summary(hold)

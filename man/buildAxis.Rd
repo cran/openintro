@@ -4,10 +4,11 @@
 Axis function substitute
 }
 \description{
-The function \code{buildAxis} is built to provide substantial control of the number of labels on the axis.
+The function \code{buildAxis} is built to provide more control of the number of labels on the axis. This function is still under development.
 }
 \usage{
-buildAxis(side, limits, n, nMin = 2, nMax = 10, extend = 2, eps = 10^-12, ...)
+buildAxis(side, limits, n, nMin = 2, nMax = 10, extend = 2,
+	eps = 10^-12, ...)
 }
 \arguments{
   \item{side}{The side of the plot where to add the axis.}
@@ -20,7 +21,7 @@ buildAxis(side, limits, n, nMin = 2, nMax = 10, extend = 2, eps = 10^-12, ...)
   \item{\dots}{Arguments passed to \code{axis}}
 }
 \details{
-The primary reason behind building this function was to allow a plot to be created with similar features but with different data sets. For instance, if a set of code was written for one data set and the function \code{axis} had been utilized with pre-specified values, the axis may not match the plot of a new set of data. The function \code{buildAxis} addresses this problem by allowing the number of axis labels to be specified and easily controlled.
+The primary reason behind building this function was to allow a plot to be created with similar features but with different data sets. For instance, if a set of code was written for one data set and the function \code{axis} had been utilized with pre-specified values, the axis may not match the plot of a new set of data. The function \code{buildAxis} addresses this problem by allowing the number of axis labels to be specified and controlled.
 
 The axis is built by assigning penalties to a variety of potential axis setups, ranking them based on these penalties and then selecting the axis with the best score.
 }
@@ -91,7 +92,8 @@ buildAxis(2, limits=y, n=4, nMax=6)
 abline(lm(y ~ x))
 
 #===> 8 - repeat <===#
-m <- runif(1)/runif(1) + rgamma(1, runif(1)/runif(1), runif(1)/runif(1))
+m <- runif(1)/runif(1) +
+	rgamma(1, runif(1)/runif(1), runif(1)/runif(1))
 s <- rgamma(1, runif(1)/runif(1), runif(1)/runif(1))
 x <- rnorm(50, m, s)
 hist(x, axes=FALSE)

@@ -5,7 +5,9 @@
 Plot observations as dots.
 }
 \usage{
-dotPlot(x, fact = NULL, vertical = FALSE, at = 1, key = NULL, pch = 20, col = fadeColor("black", "66"), cex = 1.5, add = FALSE, axes = TRUE, xlim = NULL, ylim = NULL, ...)
+dotPlot(x, fact = NULL, vertical = FALSE, at = 1, key = NULL,
+	pch = 20, col = fadeColor("black", "66"), cex = 1.5,
+	add = FALSE, axes = TRUE, xlim = NULL, ylim = NULL, ...)
 }
 \arguments{
   \item{x}{ A numerical vector. }
@@ -34,14 +36,20 @@ dotPlot(cars$price, cars$type, key=c('large', 'midsize', 'small'), cex=1:3)
 data(run10)
 layout(matrix(1:2,2), heights=c(2.7,1.5))
 par(las=1)
-dotPlot(run10$time[run10$gender=='M'], run10$div[run10$gender=='M'], col=fadeColor('black', '11'))
+these <- run10$gender=='M'
+dotPlot(run10$time[these], run10$div[these],
+	col=fadeColor('black', '11'))
 # disorganized levels in the above plot, which we could
 # organize with key. an example of organizing the levels...
-dotPlot(run10$time[run10$gender=='M'], run10$div[run10$gender=='M'], col=fadeColor('black', '11'), key=c('20-24', '25-29', '30-34', '35-39')) # just looking at male runners who are 20 to 39
+dotPlot(run10$time[these], run10$div[these],
+	col=fadeColor('black', '11'),
+	key=c('20-24', '25-29', '30-34', '35-39'))
 par(las=0, mfrow=c(1,1))
 
 #===> example 3 <===#
 data(marioKart)
-dotPlot(marioKart$totalPr, marioKart$cond, ylim=c(0.5,2.5), xlim=c(25, 80), cex=1) # the ylim is low enough that we do not observe the outliers
-boxPlot(marioKart$totalPr, marioKart$cond, add=1:2+0.1, key=c('new', 'used'), horiz=TRUE, axes=FALSE)
+dotPlot(marioKart$totalPr, marioKart$cond, ylim=c(0.5,2.5),
+	xlim=c(25, 80), cex=1) # miss the outliers
+boxPlot(marioKart$totalPr, marioKart$cond, add=1:2+0.1,
+	key=c('new', 'used'), horiz=TRUE, axes=FALSE)
 }

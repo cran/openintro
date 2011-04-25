@@ -5,7 +5,11 @@
 An alternative to \code{boxplot}. Equations are not accepted. Instead, the second argument, \code{fact}, is used to split the data.
 }
 \usage{
-boxPlot(x, fact = NULL, horiz = FALSE, width = 2/3, lwd = 1, lcol = "black", medianLwd = 2, pch = 20, pchCex = 1.8, col = fadeColor("black", "44"), add=FALSE, key=NULL, axes = TRUE, xlab = "", ylab = "", xlim = NULL, ylim = NULL, ...)
+boxPlot(x, fact = NULL, horiz = FALSE, width = 2/3, lwd = 1,
+	lcol = "black", medianLwd = 2, pch = 20, pchCex = 1.8,
+	col = fadeColor("black", "44"), add=FALSE, key=NULL,
+	axes = TRUE, xlab = "", ylab = "", xlim = NULL,
+	ylim = NULL, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -45,11 +49,19 @@ boxplot(run10$time ~ run10$gender)
 #===> modifications using boxPlot <===#
 par(mfrow=c(2,2))
 boxPlot(run10$time, run10$gender)
-boxPlot(run10$time, run10$gender, xlab='gender', ylab='run time (min)', col=fadeColor('black', '18'))
-plot(0,0, xlab='gender', ylab='run time (min)', xlim=c(0,6), ylim=c(30, 180), axes=FALSE)
-boxPlot(run10$time, run10$gender, width=0.5, lwd=2, lcol=4, medianLwd=4, pch=1, pchCex=1, col=4, add=c(1,2,5), key=c('M','F','N'))
-plot(0,0, ylab='gender', xlab='run time (min)', xlim=c(30, 180), ylim=c(0, 3), axes=FALSE)
-boxPlot(run10$time, run10$gender, horiz=TRUE, xlab='run time (min)', ylab='gender', add=1:2, key=c('F','M'))
+boxPlot(run10$time, run10$gender, xlab='gender',
+	ylab='run time (min)',
+	col=fadeColor('black', '18'))
+plot(0,0, xlab='gender', ylab='run time (min)',
+	xlim=c(0,6), ylim=c(30, 180), axes=FALSE)
+boxPlot(run10$time, run10$gender, width=0.5, lwd=2,
+	lcol=4, medianLwd=4, pch=1, pchCex=1, col=4,
+	add=c(1,2,5), key=c('M','F','N'))
+plot(0,0, ylab='gender', xlab='run time (min)',
+	xlim=c(30, 180), ylim=c(0, 3), axes=FALSE)
+boxPlot(run10$time, run10$gender, horiz=TRUE,
+	xlab='run time (min)', ylab='gender',
+	add=1:2, key=c('F','M'))
 # 'key' can be used to restrict to only the
 # desired groups
 
@@ -57,7 +69,8 @@ boxPlot(run10$time, run10$gender, horiz=TRUE, xlab='run time (min)', ylab='gende
 data(tips)
 par(mfrow=c(1,1))
 boxPlot(tips$tip, tips$day, horiz=TRUE, key=c('Tuesday', 'Friday'))
-dotPlot(tips$tip, tips$day, add=TRUE, at=1:2+0.05, key=c('Tuesday', 'Friday'))
+dotPlot(tips$tip, tips$day, add=TRUE, at=1:2+0.05,
+	key=c('Tuesday', 'Friday'))
 
 #===> adding a box <===#
 par(mfrow=1:2)

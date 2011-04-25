@@ -28,6 +28,6 @@ http://factfinder.census.gov/
 data(census)
 str(census)
 these <- census[,3] > 0     # income greater than 0
-histPlot(log(census$totalFamilyIncome[these]))
+histPlot(log(census$totalFamilyIncome[these]), xlab="log(total family income)")
 }
 \keyword{datasets}

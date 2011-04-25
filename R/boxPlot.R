@@ -7,6 +7,7 @@ function(x, fact=NULL, horiz=FALSE, width=2/3, lwd=1, lcol='black', medianLwd=2,
 	}
 	if(is.null(key)[1]){
 		uFact <- sort(unique(fact))
+		key   <- uFact
 	} else {
 		uFact <- key
 	}
