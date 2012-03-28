@@ -5,11 +5,11 @@
 An alternative to \code{boxplot}. Equations are not accepted. Instead, the second argument, \code{fact}, is used to split the data.
 }
 \usage{
-boxPlot(x, fact = NULL, horiz = FALSE, width = 2/3, lwd = 1,
-	lcol = "black", medianLwd = 2, pch = 20, pchCex = 1.8,
-	col = fadeColor("black", "44"), add=FALSE, key=NULL,
-	axes = TRUE, xlab = "", ylab = "", xlim = NULL,
-	ylim = NULL, ...)
+boxPlot(x, fact=NULL, horiz=FALSE, width=2/3, lwd=1,
+        lcol='black', medianLwd=2, pch=20, pchCex=1.8,
+        col=rgb(0,0,0,0.25), add=FALSE, key=NULL,
+        axes=TRUE, xlab='', ylab='', xlim=NULL, ylim=NULL,
+        na.rm=TRUE, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -30,6 +30,7 @@ boxPlot(x, fact = NULL, horiz = FALSE, width = 2/3, lwd = 1,
   \item{ylab}{ Label for the y axis. }
   \item{xlim}{ Limits for the x axis. }
   \item{ylim}{ Limits for the y axis. }
+  \item{na.rm}{ Indicate whether \code{NA} values should be removed. }
   \item{\dots}{ Additional arguments to plot. }
 }
 \author{ David Diez }

@@ -40,7 +40,7 @@ Election results for the 2010 U.S. House of Represenatives races
 \details{
 This analysis in the Examples section was inspired by and is similar to that of Nate Silver's district-level analysis on the FiveThirtyEight blog in the New York Times:
 
-http://fivethirtyeight.blogs.nytimes.com/2010/11/08/2010-an-aligning-election/
+\url{http://fivethirtyeight.blogs.nytimes.com/2010/11/08/2010-an-aligning-election/}
 }
 \source{
 Data was collected from MSNBC.com on November 9th, 2010.

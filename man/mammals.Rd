@@ -25,7 +25,7 @@ This data set includes data for 39 species of mammals distributed over 13 orders
   }
 }
 \source{
-http://www.statsci.org/data/general/sleep.txt
+\url{http://www.statsci.org/data/general/sleep.txt}
 }
 \references{
 T. Allison and D. Cicchetti, "Sleep in mammals: ecological and constitutional correlates," Arch. Hydrobiol, vol. 75, p. 442, 1975.

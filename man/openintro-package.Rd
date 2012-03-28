@@ -3,25 +3,25 @@
 \alias{openintro}
 \docType{package}
 \title{
-OpenIntro book project supplement
+OpenIntro data sets and supplemental functions
 }
 \description{
-This package is a supplement to the OpenIntro open source book project (\url{http://www.openintro.org/}). The package contains data sets used in the book along with plotting functions to reproduce the book's figures. Note that many functions and examples include color transparency, which may result in partially some plotting elements not showing up properly in Windows (see Details section of the openintro package help file for details).
+This package is a supplement to OpenIntro Statistics, which is a free textbook available at \href{http://www.openintro.org/}{openintro.org} (at-cost paperbacks are also available for under $10 on Amazon). The package contains data sets used in the textbook along with custom plotting functions for reproducing book figures. Note that many functions and examples include color transparency. Some plotting elements may not show up properly (or at all) in some Windows versions.
 }
 \details{
 \tabular{ll}{
 Package: \tab openintro\cr
 Type: \tab Package\cr
-Version: \tab 1.2\cr
-Date: \tab 2011-04-25\cr
-License: \tab GPL-2\cr
+Version: \tab 1.3\cr
+Date: \tab 2012-03-28\cr
+License: \tab GPL-2 | GPL-3\cr
 LazyLoad: \tab yes\cr
 }
 \code{\link{boxPlot}}, \code{\link{buildAxis}}, \code{\link{densityPlot}}, \code{\link{dotPlot}}, \code{\link{edaPlot}}, \code{\link{histPlot}}, \code{\link{normTail}}, \code{\link{cars}}, \code{\link{marioKart}}, \code{\link{possum}}, \code{\link{run10}}, \code{\link{satGPA}}, \code{\link{textbooks}}
 
 Some colors include transparency, which means they will not be plotted in some operating systems (e.g. Windows). However, the plots may be viewed if they are written to a PDF or PNG file first. For a discussion of this topic, please see
 
-http://yihui.name/en/2007/09/semi-transparent-colors-in-r-color-image-as-an-example/
+\url{http://yihui.name/en/2007/09/semi-transparent-colors-in-r-color-image-as-an-example/}
 
 Two new functions, \code{\link{myPDF}} and \code{\link{myPNG}}, were created in this package and may also be used to set up nice plotting files that allow for transparency.
 }

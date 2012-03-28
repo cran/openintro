@@ -17,7 +17,7 @@ Marathon times of male and female winners of the New York City Marathon 1970-199
   }
 }
 \source{
-http://www.webcitation.org/5kx7ilFLp
+\url{http://www.webcitation.org/5kx7ilFLp}
 }
 \examples{
 data(marathon)

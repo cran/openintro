@@ -26,7 +26,7 @@ In Nebraska, 4 electoral votes went to McCain and 1 to Obama. Otherwise the elec
 \source{
 Presidential Election of 2008, Electoral and Popular Vote Summary, collected on April 21, 2011 from
 
-http://www.infoplease.com/us/government/presidential-election-vote-summary.html
+\url{http://www.infoplease.com/us/government/presidential-election-vote-summary.html}
 }
 \examples{
 #===> Obtain 2010 US House Election Data <===#

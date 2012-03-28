@@ -20,7 +20,7 @@ Salary data for Major League Baseball players in the year 2010.
 \source{
 Collected from the following page (and its linked pages) on February 23rd, 2011:
 
-http://content.usatoday.com/sportsdata/baseball/mlb/salaries/team
+\url{http://content.usatoday.com/sportsdata/baseball/mlb/salaries/team}
 }
 \examples{
 data(MLB)

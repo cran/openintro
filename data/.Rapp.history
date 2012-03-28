@@ -108,3 +108,94 @@ lm(PM25_Mass ~ offset(su) + offset(ni) + offset(si) + offset(ec) + offset(oc) + 
 summary(hold)
 lm(PM25_Mass ~ offset(su) + offset(ni) + offset(si) + offset(ec) + oc + so, d) -> hold
 summary(hold)
+load("/Users/ddiez/Dropbox/openintro/Textbook/openintro/data/county.rda")
+names(county)
+p00 <- county$pop2000#
+p10 <- county$pop2010#
+hist((p10 - p00)/p00)
+countyComplete[1:2,]
+load("/Users/ddiez/Dropbox/openintro/Textbook/openintro/data/countyComplete.rda")
+countyComplete[1:2,]
+library(RCurl)#
+load("counties.RData")#
+states     <- read.delim("stateDelim.txt", sep="\t")#
+stateFIPS  <- substr(as.character(states$page), 1, 2)#
+countyFIPS <- c()#
+cNames  <- c()#
+CountyMat <- data.frame(matrix(0, 1, 61))[-1,]#
+state   <- c()#
+for(i in 1:(nrow(states) - 1)){#
+  s  <- as.character(states$state[i])#
+  fn <- paste("states/", s, ".txt", sep="")#
+  county     <- read.delim(fn, sep="\t")#
+  countyInfo <- list()#
+  fn <- paste("county/", states$state[i], ".rda", sep="")#
+  load(fn)#
+  cc   <- as.character(county$county[1])#
+  coun <- rep(as.character(county$county[1]), nrow(countyInfo[[cc]]))#
+  vars <- as.character(countyInfo[[cc]][,1])#
+  vals <- as.character(countyInfo[[cc]][,2])#
+  Vars <- vars#
+  cNames <- append(cNames, as.character(county$county))#
+  state  <- append(state, rep(s, length(county$county)))#
+  t1         <- as.numeric(stateFIPS[i])#
+  t2         <- as.character(countyInfo[[cc]][60,2])#
+  t3         <- paste(t1, t2, sep="")#
+  countyFIPS <- append(countyFIPS, t3)#
+  if(nrow(county) > 1){#
+   for(j in 2:nrow(county)){#
+    cc <- as.character(county$county[j])#
+    #
+    #===> County Information <===##
+    temp <- as.character(cc)#
+    coun <- append(coun, rep(temp, nrow(countyInfo[[cc]])))#
+    temp <- as.character(countyInfo[[cc]][,1])#
+    vars <- append(vars, temp)#
+    if(any(temp != Vars, rm.na=TRUE)){#
+      cat(i, j, "\n")#
+    }#
+    temp <- as.character(countyInfo[[cc]][,2])#
+    vals <- append(vals, temp)#
+    t1         <- as.numeric(stateFIPS[i])#
+    t2         <- as.character(countyInfo[[cc]][60,2])#
+    t3         <- paste(t1, t2, sep="")#
+    countyFIPS <- append(countyFIPS, t3)#
+    #
+    cat("\r", i, "of", nrow(states), "-", j, "of", nrow(county), "  ")#
+   }#
+  }#
+  CountyMat <- rbind(CountyMat, matrix(vals, nrow(county), byrow=TRUE))#
+}
+load("/Users/ddiez/Dropbox/openintro/textbook/openintro/data/spam.rda")
+dim(spam)
+names(spam)
+spam[,21:22]
+spam$small_number[spam$big_number == 1] <- 0
+save(spam, file="spam.rda")
+load("/Users/ddiez/Dropbox/openintro/textbook/openintro/data/spam.rda")
+?email50
+library(openintro)
+?email50
+data(email50)#
+data(spam)#
+set.seed(2)#
+dd <- spam[substr(spam$time, 1, 7) %in% c("2012-01", "2012-02"),]#
+d  <- dd[sample(nrow(dd), 50),]#
+identical(d, email50)
+d
+plot(d$num_char, d$lines)
+plot(d$num_char, d$lines, log="xy")
+email50 <- d
+save(email50, file="email50.rda")
+?email
+dim(dd)
+email <- dd
+save(email, file="email.rda")
+load("/Users/ddiez/Dropbox/openintro/textbook/openintro/data/spam.rda")
+ls()
+spam[1:2,]
+library(openintro)
+?email50
+load("/Users/ddiez/Dropbox/openintro/textbook/openintro/data/county.rda")
+county$smoking_ban
+county$ban

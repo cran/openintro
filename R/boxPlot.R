@@ -1,129 +1,141 @@
+# fact=NULL
+# horiz=FALSE
+# width=2/3
+# lwd=1
+# lcol='black'
+# medianLwd=2
+# pch=20
+# pchCex=1.8
+# col=rgb(0,0,0,0.25)
+# add=FALSE
+# key=NULL
+# axes=TRUE
+# xlab=''
+# ylab=''
+# xlim=NULL
+# ylim=NULL
+
 `boxPlot` <-
-function(x, fact=NULL, horiz=FALSE, width=2/3, lwd=1, lcol='black', medianLwd=2, pch=20, pchCex=1.8, col=fadeColor('black', '44'), add=FALSE, key=NULL, axes=TRUE, xlab='', ylab='', xlim=NULL, ylim=NULL, ...){
-	if(!is.null(fact)[1]){
-		fact <- as.character(fact)
-	} else {
-		fact <- rep('', length(x))
-	}
-	if(is.null(key)[1]){
-		uFact <- sort(unique(fact))
-		key   <- uFact
-	} else {
-		uFact <- key
-	}
-	N <- length(uFact)
-	fiveNum <- matrix(NA, N, 5)
-	for(i in 1:N){
-		fiveNum[i,] <- fivenum(x[fact == uFact[i]])
-	}
-	iqrAdj <- 1.5*(fiveNum[,4] - fiveNum[,2])
-	below <- which(fiveNum[,1] < fiveNum[,2]-iqrAdj)
-	if(length(below) > 0){
-		for(i in 1:length(below)){
-			fiveNum[below[i],1] <- min(x[x > fiveNum[below[i],2]-iqrAdj[below[i]] & fact == uFact[i]])
-		}
-	}
-	above <- which(fiveNum[,5] > fiveNum[,4]+iqrAdj)
-	if(length(above) > 0){
-		for(i in 1:length(above)){
-			fiveNum[above[i],5] <- max(x[x < fiveNum[above[i],4]+iqrAdj[above[i]] & fact == uFact[i]])
-		}
-	}
-#	below <- fiveNum[,1] < fiveNum[,2]-iqrAdj
-#	fiveNum[below,1] <- fiveNum[below,2]-iqrAdj[below]
-#	above <- fiveNum[,5] > fiveNum[,4]+iqrAdj
-#	fiveNum[above,5] <- fiveNum[above,4]+iqrAdj[above]
-	w <- width/2
-	if(horiz){
-		if(is.null(ylim)){
-			yR <- c(1-2*w,N+2*w)
-		} else {
-			yR <- ylim
-		}
-		if(is.null(xlim)){
-			xR <- range(x)
-			xR <- xR + c(-1,1)*diff(xR)/30
-		} else {
-			xR <- xlim
-		}
-		if(is.logical(add[1])){
-			if(!add[1]){
-				plot(1:length(x),x,type='n',axes=FALSE, xlim=xR, xlab=xlab, ylab=ylab, ylim=yR, ...)
-			}
-			add <- 1:N
-		} 
-		if(N == 1){
-			w <- w/1.3
-		}
-		for(i in 1:N){
-			bds <- add[i]+w*c(-1,1)
-			lines(rep(fiveNum[i,1],2), bds, col=lcol, lwd=lwd)
-			lines(fiveNum[i,1:2], c(add[i],add[i]), col=lcol, lwd=lwd)
-			rect(fiveNum[i,2], add[i]-w, fiveNum[i,4], add[i]+w, border=lcol, lwd=lwd)
-			lines(rep(fiveNum[i,3], 2), bds, col=lcol, lwd=medianLwd)
-			lines(fiveNum[i,4:5], c(add[i],add[i]), col=lcol, lwd=lwd)
-			lines(rep(fiveNum[i,5],2), bds, col=lcol, lwd=lwd)
-			if(i %in% above){
-				X <- x[fact == uFact[i] & x > fiveNum[i,5]]
-				points(X, rep(add[i], length(X)), pch=pch, col=col, cex=pchCex)
-			}
-			if(i %in% below){
-				X <- x[fact == uFact[i] & x < fiveNum[i,1]]
-				points(X, rep(add[i], length(X)), pch=pch, col=col, cex=pchCex)
-			}
-		}
-		if(axes){
-			if(N > 1){
-				axis(2, at=add, labels=uFact)
-			}
-			axis(1)
-			box()
-		}
-	} else {
-		if(is.null(ylim)){
-			yR <- range(x)
-			yR <- yR + c(-1,1)*diff(yR)/30
-		} else {
-			yR <- ylim
-		}
-		if(is.null(xlim)){
-			xR <- c(1-2*w,N+2*w)
-		} else {
-			xR <- xlim
-		}
-		if(is.logical(add[1])){
-			if(!add[1]){
-				plot(1:length(x),x,type='n',axes=FALSE, xlim=xR, xlab=xlab, ylab=ylab, ylim=yR, ...)
-			}
-			add <- 1:N
-		}
-		if(N == 1){
-			w <- w/1.3
-		}
-		for(i in 1:N){
-			bds <- add[i]+w*c(-1,1)
-			lines(bds, rep(fiveNum[i,1],2), col=lcol, lwd=lwd)
-			lines(c(add[i],add[i]), fiveNum[i,1:2], col=lcol, lwd=lwd)
-			rect(add[i]-w, fiveNum[i,2], add[i]+w, fiveNum[i,4], border=lcol, lwd=lwd)
-			lines(bds, rep(fiveNum[i,3], 2), col=lcol, lwd=medianLwd)
-			lines(c(add[i],add[i]), fiveNum[i,4:5], col=lcol, lwd=lwd)
-			lines(bds, rep(fiveNum[i,5],2), col=lcol, lwd=lwd)
-			if(i %in% above){
-				X <- x[fact == uFact[i] & x > fiveNum[i,5]]
-				points(rep(add[i], length(X)), X, pch=pch, col=col, cex=pchCex)
-			}
-			if(i %in% below){
-				X <- x[fact == uFact[i] & x < fiveNum[i,1]]
-				points(rep(add[i], length(X)), X, pch=pch, col=col, cex=pchCex)
-			}
-		}
-		if(axes){
-			if(N > 1){
-				axis(1, at=add, labels=uFact)
-			}
-			axis(2)
-			box()
-		}
-	}
+function(x, fact=NULL, horiz=FALSE, width=2/3, lwd=1, lcol='black', medianLwd=2, pch=20, pchCex=1.8, col=rgb(0,0,0,0.25), add=FALSE, key=NULL, axes=TRUE, xlab='', ylab='', xlim=NULL, ylim=NULL, na.rm=TRUE, ...){
+  if(!is.null(fact)[1]){
+  	if(na.rm){
+  	  keep <- !is.na(x) & !is.na(fact)
+  	  fact <- fact[keep]
+  	  x    <- x[keep]
+  	}
+  	if(is.null(key)[1]){
+  	  if(is.factor(fact)[1]){
+  	    uFact <- levels(fact)
+  	  } else {
+  	    uFact <- sort(unique(fact))
+  	  }
+  	  key   <- uFact
+  	} else {
+  	  uFact <- key
+  	}
+  	N    <- length(uFact)
+  	fact <- as.character(fact)
+  	makePlot <- FALSE
+  	if(is.logical(add) && add == FALSE){
+  	  add  <- 1:length(uFact)
+  	  makePlot <- TRUE
+  	}
+  	if(is.null(xlim)[1]){
+  	  xlim <- c(1-width,N+width)
+  	  if(horiz){
+  	    xlim <- range(x)
+  	  }
+  	}
+  	if(is.null(ylim)[1]){
+  	  ylim <- range(x)
+  	  if(horiz){
+  	    ylim <- c(1-width,N+width)
+  	  }
+  	}
+  	
+    if(makePlot){
+      plot(0, 0, type="n", xlab=xlab, ylab=ylab,
+           xlim=xlim, ylim=ylim, axes=FALSE)
+      if(axes){
+        axis(ifelse(horiz, 2, 1), at=add, labels=uFact)
+  	    axis(ifelse(horiz, 1, 2))
+      }
+    }
+  	if(N > 1){
+  	  for(i in 1:N){
+  	    Recall(x[fact == uFact[i]], fact=NULL, horiz=horiz, width=width,
+  	        lwd=lwd, lcol=lcol, medianLwd=medianLwd, pch=pch,
+  	        pchCex=pchCex, col=col, add=add[i], na.rm=FALSE, ...)
+  	  }
+  	}
+  	
+  } else {
+  	if(na.rm){
+  	  keep <- !is.na(x)
+  	  x    <- x[keep]
+  	}
+  	if(is.logical(add) && add == FALSE){
+  	  add <- 1
+  	  if(is.null(xlim)[1]){
+  	    xlim <- c(add-width,add+width)
+  	    if(horiz){
+  	      xlim <- range(x)
+  	    }
+  	  }
+  	  if(is.null(ylim)[1]){
+  	    ylim <- range(x)
+  	    if(horiz){
+  	      ylim <- c(1-width,N+width)
+  	    }
+      }
+      plot(0, 0, type="n", xlab=xlab, ylab=ylab,
+           xlim=xlim, ylim=ylim, axes=FALSE)
+      if(axes){
+  	    axis(ifelse(horiz, 1, 2))
+      }
+  	}
+  	
+  	FN    <- c(min(x), quantile(x, c(0.25, 0.5, 0.75)), max(x))
+  	IQR   <- FN[4] - FN[2]
+  	FENCE <- FN[c(2,4)] + 1.5*IQR*c(-1,1)
+  	below <- x < FENCE[1]
+  	above <- x > FENCE[2]
+  	if(!any(below)){
+  	  FENCE[1] <- FN[1]
+  	} else {
+  	  FENCE[1] <- min(x[x > FENCE[1]])
+  	}
+  	if(!any(above)){
+  	  FENCE[2] <- FN[5]
+  	} else {
+  	  FENCE[2] <- max(x[x < FENCE[2]])
+  	}
+  	show  <- below | above
+  	w     <- width/2
+  	
+  	if(horiz){
+  	  rect(FN[2], add-w, FN[4], add+w, lwd=lwd, border=lcol)
+  	  lines(rep(FN[3], 2), add+w*c(-1,1), lwd=medianLwd, col=lcol)
+  	  lines(c(FENCE[1], FN[2]), rep(add,2), lwd=lwd, col=lcol)
+  	  lines(rep(FENCE[1], 2), add+w*c(-1,1), lwd=lwd, col=lcol)
+  	  lines(c(FENCE[2], FN[4]), rep(add,2), lwd=lwd, col=lcol)
+  	  lines(rep(FENCE[2], 2), add+w*c(-1,1), lwd=lwd, col=lcol)
+  	  if(any(show)){
+  	    points(x[show], rep(add, sum(show)),
+  	           pch=pch, cex=pchCex, col=col)
+  	  }
+  	} else {
+  	  rect(add-w, FN[2], add+w, FN[4], lwd=lwd, border=lcol)
+  	  lines(add+w*c(-1,1), rep(FN[3], 2), lwd=medianLwd, col=lcol)
+  	  lines(rep(add,2), c(FENCE[1], FN[2]), lwd=lwd, col=lcol)
+  	  lines(add+w*c(-1,1), rep(FENCE[1], 2), lwd=lwd, col=lcol)
+  	  lines(rep(add,2), c(FENCE[2], FN[4]), lwd=lwd, col=lcol)
+  	  lines(add+w*c(-1,1), rep(FENCE[2], 2), lwd=lwd, col=lcol)
+  	  if(any(show)){
+  	    points(rep(add, sum(show)), x[show],
+  	           pch=pch, cex=pchCex, col=col)
+  	  }
+  	}
+  }
 }
 

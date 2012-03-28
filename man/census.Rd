@@ -22,7 +22,7 @@ A random sample of 500 observations from the 2000 U.S. Census Data.
   }
 }
 \source{
-http://factfinder.census.gov/
+\url{http://factfinder.census.gov/}
 }
 \examples{
 data(census)

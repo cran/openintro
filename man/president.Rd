@@ -21,7 +21,7 @@ Summary of the changes in the president and vice president for the United States
 \source{
 Presidents of the United States (table) -- infoplease.com (visited: Nov 2nd, 2010)
 
-http://www.infoplease.com/ce6/history/A0840075.html
+\url{http://www.infoplease.com/ce6/history/A0840075.html}
 }
 \examples{
 data(president)

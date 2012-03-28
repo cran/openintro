@@ -28,11 +28,11 @@ The make-up of the United States House of Representatives every two years since 
 \source{
 Office of the Clerk of the U.S. House of Representatives Party Divisions:
 
-http://clerk.house.gov/art_history/house_history/partyDiv.html
+\url{http://clerk.house.gov/art_history/house_history/partyDiv.html}
 
 Data for Congresses 1-111 was recorded from the website above on November 1st, 2010. It appears this page was later moved to
 
-http://artandhistory.house.gov/house_history/partyDiv.aspx
+\url{http://artandhistory.house.gov/house_history/partyDiv.aspx}
 
 where data for Congress 112 was recorded on April 21, 2011.
 }
