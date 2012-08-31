@@ -12,8 +12,8 @@ This package is a supplement to OpenIntro Statistics, which is a free textbook a
 \tabular{ll}{
 Package: \tab openintro\cr
 Type: \tab Package\cr
-Version: \tab 1.3\cr
-Date: \tab 2012-03-28\cr
+Version: \tab 1.4\cr
+Date: \tab 2012-08-31\cr
 License: \tab GPL-2 | GPL-3\cr
 LazyLoad: \tab yes\cr
 }
@@ -26,7 +26,7 @@ Some colors include transparency, which means they will not be plotted in some o
 Two new functions, \code{\link{myPDF}} and \code{\link{myPNG}}, were created in this package and may also be used to set up nice plotting files that allow for transparency.
 }
 \author{
-David M Diez and Christopher D Barr
+David M Diez, Christopher D Barr, Mine Cetinkaya-Rundel
 
 Maintainer: DM Diez <david.m.diez@gmail.com>
 }
@@ -51,7 +51,7 @@ legend('topleft', col=c('black', 'red'), lty=2:3, legend=c('M','F'))
 histPlot(run10$time, col=fadeColor('yellow', '33'), border='darkblue',
 	probability=TRUE, breaks=30, lwd=3)
 brks <- c(40, 50, 60, 65, 70, 75, 80, seq(82.5, 120, 2.5), 125,
-	130, 135, 140, 150, 160, 170)
+	130, 135, 140, 150, 160, 180)
 histPlot(run10$time, probability=TRUE, breaks=brks,
 	col=fadeColor('darkgoldenrod4', '33'))
 

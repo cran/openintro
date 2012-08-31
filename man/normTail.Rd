@@ -1,11 +1,7 @@
 \name{normTail}
 \alias{normTail}
-\title{
-Normal distribution tails
-}
-\description{
-Produce a normal (or t) distribution and shaded tail.
-}
+\title{ Normal distribution tails }
+\description{ Produce a normal (or t) distribution and shaded tail. }
 \usage{
 normTail(m = 0, s = 1, L = NULL, U = NULL, M = NULL, df=1000,
 	curveColor=1, border = 1, col = "#CCCCCC", xlim = NULL,
@@ -13,73 +9,29 @@ normTail(m = 0, s = 1, L = NULL, U = NULL, M = NULL, df=1000,
 	detail = 999, xLab = c("number", "symbol"), cex.axis = 1,
 	xAxisIncr=1, ...)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{m}{
-Numerical value for the distribution mean.
+  \item{m}{ Numerical value for the distribution mean. }
+  \item{s}{ Numerical value for the distribution standard deviation. }
+  \item{L}{ Numerical value representing the cutoff for a shaded lower tail. }
+  \item{U}{ Numerical value representing the cutoff for a shaded upper tail. }
+  \item{M}{ Numerical value representing the cutoff for a shaded central region. }
+  \item{df}{ Numerical value describing the degrees of freedom. Default is \code{1000}, which results in a nearly normal distribution. Small values may be useful to emphasize small tails. }
+  \item{curveColor}{ The color for the distribution curve. }
+  \item{border}{ The color for the border of the shaded area. }
+  \item{col}{ The color for filling the shaded area. }
+  \item{xlim}{ Limits for the x axis. }
+  \item{ylim}{ Limits for the y axis. }
+  \item{xlab}{ A title for the x axis. }
+  \item{ylab}{ A title for the y axis. }
+  \item{digits}{ The maximum number of digits past the decimal to use in axes values. }
+  \item{axes}{ A numeric value denoting whether to draw both axes (\code{3}), only the vertical axes (\code{2}), only the horizontal axes (\code{1}, the default), or no axes (\code{0}). }
+  \item{detail}{ A number describing the number of points to use in drawing the normal curve. Smaller values correspond to a less smooth curve but reduced memory usage in the final file. }
+  \item{xLab}{ If \code{"number"}, then the axis is drawn at the mean, and every standard deviation out until the third standard deviation. If \code{"symbol"}, then Greek letters are used for standard deviations from three standard deviations from the mean. }
+  \item{cex.axis}{ Numerical value controlling the size of the axis labels. }
+  \item{xAxisIncr}{ A number describing how often axis labels are placed, scaled by standard deviations. This argument is ignored if \code{xLab="symbol"}. }
+  \item{\dots}{ Additional arguments to \code{plot}. }
 }
-  \item{s}{
-Numerical value for the distribution standard deviation.
-}
-  \item{L}{
-Numerical value representing the cutoff for a shaded lower tail.
-}
-  \item{U}{
-Numerical value representing the cutoff for a shaded upper tail.
-}
-  \item{M}{
-Numerical value representing the cutoff for a shaded central region.
-}
-  \item{df}{
-Numerical value describing the degrees of freedom. Default is \code{1000}, which results in a nearly normal distribution. Small values may be useful to emphasize small tails.
-}
-  \item{curveColor}{
-The color for the distribution curve.
-}
-  \item{border}{
-The color for the border of the shaded area.
-}
-  \item{col}{
-The color for filling the shaded area.
-}
-  \item{xlim}{
-Limits for the x axis.
-}
-  \item{ylim}{
-Limits for the y axis.
-}
-  \item{xlab}{
-A title for the x axis.
-}
-  \item{ylab}{
-A title for the y axis.
-}
-  \item{digits}{
-The maximum number of digits past the decimal to use in axes values.
-}
-  \item{axes}{
-A numeric value denoting whether to draw both axes (\code{3}), only the vertical axes (\code{2}), only the horizontal axes (\code{1}, the default), or no axes (\code{0}).
-}
-  \item{detail}{
-A number describing the number of points to use in drawing the normal curve. Smaller values correspond to a less smooth curve but reduced memory usage in the final file.
-}
-  \item{xLab}{
-If \code{"number"}, then the axis is drawn at the mean, and every standard deviation out until the third standard deviation. If \code{"symbol"}, then Greek letters are used for standard deviations from three standard deviations from the mean.
-}
-  \item{cex.axis}{
-Numerical value controlling the size of the axis labels.
-}
-  \item{xAxisIncr}{
-A number describing how often axis labels are placed, scaled by standard deviations. This argument is ignored if \code{xLab="symbol"}.
-}
-  \item{\dots}{
-Additional arguments to \code{plot}.
-}
-}
-\author{
-DM Diez
-}
-
+\author{ DM Diez }
 \seealso{
 \code{\link{buildAxis}}
 }

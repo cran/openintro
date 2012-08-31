@@ -10,7 +10,7 @@ Data representing possums in Australia and New Guinea. This is a copy of the dat
   A data frame with 104 observations on the following 8 variables.
   \describe{
     \item{\code{site}}{ The site number where the possum was trapped. }
-    \item{\code{pop}}{ Population, either \code{Vic} (Victoria) or\code{other} (New South Wales or Queensland).}
+    \item{\code{pop}}{ Population, either \code{Vic} (Victoria) or \code{other} (New South Wales or Queensland).}
     \item{\code{sex}}{ Gender, either \code{m} (male) or \code{f} (female).}
     \item{\code{age}}{ Age. }
     \item{\code{headL}}{ Head length, in mm. }

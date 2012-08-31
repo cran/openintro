@@ -3,11 +3,14 @@ function(m=0, s=1, L=NULL, U=NULL, M=NULL, df=1000, curveColor=1, border=1, col=
 	if(is.null(xlim)[1]){
 		xlim <- m + c(-1,1)*3.5*s
 	}
-	x <- seq(xlim[1],xlim[2],l=detail)
-	y <- dt((x-m)/s, df)/s
+	temp <- diff(range(xlim))
+	x    <- seq(xlim[1] - temp/4, xlim[2] + temp/4, length.out=detail)
+	y    <- dt((x-m)/s, df)/s
 	if(is.null(ylim)[1]){
 		ylim <- range(c(0,y))
 	}
+	cat(x)
+	cat(y)
 	plot(x, y, type='l', xlim=xlim, ylim=ylim, xlab=xlab, ylab=ylab, axes=FALSE, col=curveColor, ...)
 	if(!is.null(L[1])){
 		these <- (x <= L)

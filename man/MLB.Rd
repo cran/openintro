@@ -1,12 +1,8 @@
 \name{MLB}
 \alias{MLB}
 \docType{data}
-\title{
-Salary data for Major League Baseball (2010)
-}
-\description{
-Salary data for Major League Baseball players in the year 2010.
-}
+\title{ Salary data for Major League Baseball (2010) }
+\description{ Salary data for Major League Baseball players in the year 2010. }
 \usage{data(MLB)}
 \format{
   A data frame with 828 observations on the following 4 variables.

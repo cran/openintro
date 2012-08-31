@@ -26,9 +26,10 @@ treeDiag <- function(main, p1, p2, out1=c('Yes','No'), out2=c('Yes','No'), textw
 		y2 <- seq(.23, -.23, len=n2)
 	} else if(n1 > 2 && n2 == 2){
 		y1 <- seq(.5, -.5, len=n1)
+		y2 <- seq(.13, -.13, len=n2)
 	} else if(n1 > 2 && n2 > 2){
 		y1 <- seq(.5, -.5, len=n1)
-		y2 <- seq(.15, -.15, len=n2)
+		y2 <- seq(.1, -.1, len=n2)
 	}
 	
 	#=====> Basic Plot <=====#
