@@ -12,8 +12,8 @@ This package is a supplement to OpenIntro Statistics, which is a free textbook a
 \tabular{ll}{
 Package: \tab openintro\cr
 Type: \tab Package\cr
-Version: \tab 1.4\cr
-Date: \tab 2012-08-31\cr
+Version: \tab 1.5.0\cr
+Date: \tab 2013-10-28\cr
 License: \tab GPL-2 | GPL-3\cr
 LazyLoad: \tab yes\cr
 }

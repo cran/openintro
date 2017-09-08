@@ -14,6 +14,7 @@
 # ylab=''
 # xlim=NULL
 # ylim=NULL
+# na.rm=TRUE
 
 `boxPlot` <-
 function(x, fact=NULL, horiz=FALSE, width=2/3, lwd=1, lcol='black', medianLwd=2, pch=20, pchCex=1.8, col=rgb(0,0,0,0.25), add=FALSE, key=NULL, axes=TRUE, xlab='', ylab='', xlim=NULL, ylim=NULL, na.rm=TRUE, ...){
@@ -103,12 +104,12 @@ function(x, fact=NULL, horiz=FALSE, width=2/3, lwd=1, lcol='black', medianLwd=2,
   	if(!any(below)){
   	  FENCE[1] <- FN[1]
   	} else {
-  	  FENCE[1] <- min(x[x > FENCE[1]])
+  	  FENCE[1] <- min(x[!below])
   	}
   	if(!any(above)){
   	  FENCE[2] <- FN[5]
   	} else {
-  	  FENCE[2] <- max(x[x < FENCE[2]])
+  	  FENCE[2] <- max(x[!above])
   	}
   	show  <- below | above
   	w     <- width/2
