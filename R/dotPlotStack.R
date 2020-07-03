@@ -1,3 +1,27 @@
+#' Add a Stacked Dot Plot to an Existing Plot
+#'
+#' Add a stacked dot plot to an existing plot. The locations for the points in
+#' the dot plot are returned from the function in a list.
+#'
+#'
+#' @param x A vector of numerical observations for the dot plot.
+#' @param radius The approximate distance that should separate each point.
+#' @param seed A random seed (integer). Different values will produce different
+#' variations.
+#' @param addDots Indicate whether the points should be added to the plot.
+#' @param \dots Additional arguments are passed to
+#' \code{\link[graphics]{points}}.
+#' @return Returns a list with a height that can be used as the upper bound of
+#' ylim for a plot, then also the x- and y-coordinates of the points in the
+#' stacked dot plot.
+#' @author David Diez
+#' @seealso \code{\link{dotPlot}}, \code{\link{histPlot}}
+#' @keywords stacked dot plot dot plot
+#' @export
+#' @examples
+#'
+#' #
+#'
 dotPlotStack <- function(x, radius=1, seed=1, addDots=TRUE, ...){
   set.seed(seed)
   x <- sample(x)
@@ -13,7 +37,7 @@ dotPlotStack <- function(x, radius=1, seed=1, addDots=TRUE, ...){
         next
       } else {
         if(addDots){
-          points(x[i], s, ...)
+          graphics::points(x[i], s, ...)
         }
         y[i] <- s
         add  <- FALSE

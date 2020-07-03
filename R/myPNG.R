@@ -1,4 +1,4 @@
-
+#' @export
 myPNG <- function (fileName,
                    width = 600,
                    height = 400,
@@ -7,6 +7,6 @@ myPNG <- function (fileName,
                    las = 1,
                    tcl = -0.3,
                    ...) {
-  png(fileName, width, height)
-  par(mar = mar, mgp = mgp, las = las, tcl = tcl, ...)
+  grDevices::png(fileName, width, height)
+  graphics::par(mar = mar, mgp = mgp, las = las, tcl = tcl, ...)
 }

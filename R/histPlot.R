@@ -1,3 +1,73 @@
+#' Histogram or hollow histogram
+#'
+#' Create histograms and hollow histograms. This function permits easy color
+#' and appearance customization.
+#'
+#'
+#' @param x Numerical vector or a frequency table (matrix) where the first
+#' column represents the observed values and the second column the frequencies.
+#' See also \code{freqTable} argument.
+#' @param col Shading of the histogram bins.
+#' @param border Color of histogram bin borders.
+#' @param breaks A vector for the bin boundaries or an approximate number of
+#' bins.
+#' @param probability If \code{FALSE}, the frequency is plotted. If
+#' \code{TRUE}, then a probability density.
+#' @param hollow If \code{TRUE}, a hollow histogram will be created.
+#' @param add If \code{TRUE}, the histogram is added to the plot.
+#' @param lty Line type. Applies only if \code{hollow=TRUE}.
+#' @param lwd Line width. Applies only if \code{hollow=TRUE}.
+#' @param freqTable Set to \code{TRUE} if \code{x} is a frequency table.
+#' @param right Set to \code{FALSE} to assign values of \code{x} that fall on a
+#' bin margin to the left bin. Otherwise the ties default to the right bin.
+#' @param axes If \code{FALSE}, the axes are not plotted.
+#' @param xlab Label for the x axis.
+#' @param ylab Label for the y axis.
+#' @param xlim Limits for the x axis.
+#' @param ylim Limits for the y axis.
+#' @param \dots Additional arguments to \code{plot}. If \code{add} is
+#' \code{TRUE}, these arguments are ignored.
+#' @author David Diez
+#' @seealso \code{\link{boxPlot}}, \code{\link{dotPlot}},
+#' \code{\link{densityPlot}}
+#' @export
+#' @examples
+#'
+#'
+#' histPlot(tips$tip, main = "Tips")
+#'
+#' # overlaid hollow histograms
+#' histPlot(tips$tip[tips$day == "Tuesday"],
+#'          probability = TRUE,
+#'          hollow = TRUE,
+#'          main = "Tips by day")
+#' histPlot(tips$tip[tips$day == "Friday"],
+#'          probability = TRUE,
+#'          hollow = TRUE,
+#'          add = TRUE,
+#'          lty = 3,
+#'          border = "red")
+#' legend("topright",
+#'        col = c("black", "red"),
+#'        lty = 1:2,
+#'        legend = c("Tuesday", "Friday"))
+#'
+#' # breaks and colors
+#' histPlot(tips$tip,
+#'          col = fadeColor("yellow", "33"),
+#'          border = "darkblue",
+#'          probability = TRUE,
+#'          breaks = 30,
+#'          lwd = 3)
+#'
+#' # custom breaks
+#' brks <- c(-1, 0, 1, 2, 3, 4, seq(5, 20, 5), 22, 24, 26)
+#' histPlot(tips$tip,
+#'          probability = TRUE,
+#'          breaks = brks,
+#'          col = fadeColor("darkgoldenrod4", "33"),
+#'          xlim = c(0, 26))
+#'
 histPlot <- function(x,
                      col = fadeColor('black', '22'),
                      border = 'black',
@@ -48,13 +118,13 @@ histPlot <- function(x,
     H$density <- (H$counts / sum(H$counts)) / diff(H$breaks)
   } else {
     if(length(breaks) > 1 && is.numeric(breaks)[1]){
-      H <- hist(x,
+      H <- graphics::hist(x,
                 breaks = breaks,
                 plot = FALSE,
                 right = right,
                 include.lowest = FALSE)
     } else {
-      H <- hist(x,
+      H <- graphics::hist(x,
                 breaks = breaks,
                 plot = FALSE,
                 right = right)
@@ -90,17 +160,17 @@ histPlot <- function(x,
          ylab = ylab,
          xlab = xlab,
          ...)
-    abline(h = 0)
+    graphics::abline(h = 0)
     if(axes){
-      axis(1)
-      axis(2)
+      graphics::axis(1)
+      graphics::axis(2)
     }
   }
   if(hollow){
     n  <- length(H$breaks)
     br <- c(br[1], br)
     y  <- c(0, y, 0)
-    points(br, y,
+    graphics::points(br, y,
            type = 's',
            col = border,
            lty = lty,

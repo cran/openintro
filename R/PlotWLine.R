@@ -1,3 +1,26 @@
+#' Plot data and add a regression line
+#'
+#' Plot data and add a regression line.
+#'
+#'
+#' @param x Predictor variable.
+#' @param y Outcome variable.
+#' @param xlab x-axis label.
+#' @param ylab y-axis label.
+#' @param col Color of points.
+#' @param cex Size of points.
+#' @param pch Plotting character.
+#' @param n The preferred number of axis labels.
+#' @param nMax The maximum number of axis labels.
+#' @param yR y-limit buffer factor.
+#' @param axes Boolean to indicate whether or not to include axes.
+#' @param \dots Passed to \code{plot}.
+#' @seealso \code{\link{makeTube}}
+#' @export
+#' @examples
+#'
+#' PlotWLine(1:10, seq(-5, -2, length.out = 10) + rnorm(10))
+#'
 PlotWLine <- function(x, y,
                       xlab = '',
                       ylab = '',
@@ -9,9 +32,9 @@ PlotWLine <- function(x, y,
                       yR = 0.1,
                       axes = TRUE,
                       ...){
-  par(las = 0)
+  graphics::par(las = 0)
   yR <- range(y) + c(-1, 1) * 0.1 * diff(range(y))
-  plot(x, y,
+  graphics::plot(x, y,
        pch = 20,
        cex = cex,
        col = col,
@@ -23,12 +46,12 @@ PlotWLine <- function(x, y,
   if (axes) {
     buildAxis(1, x, n, nMax = nMax)
   }
-  mtext(xlab, 1, 1.8)
-  mtext(ylab, 2, 2.8)
-  par(mgp = c(2.8, 0.75, 0), las = 1)
+  graphics::mtext(xlab, 1, 1.8)
+  graphics::mtext(ylab, 2, 2.8)
+  graphics::par(mgp = c(2.8, 0.75, 0), las = 1)
   if (axes) {
     buildAxis(2, y, n, nMax = nMax)
   }
-  g <- lm(y ~ x)
-  abline(g, col = 1, lwd = 1.5)
+  g <- stats::lm(y ~ x)
+  graphics::abline(g, col = 1, lwd = 1.5)
 }
