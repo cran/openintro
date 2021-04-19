@@ -7,14 +7,14 @@
 \format{
 A data frame with 197 observations on the following 7 variables.
 \describe{
-  \item{station}{Station ID.}
-  \item{latitude}{Latitude of the station.}
-  \item{longitude}{Longitude of the station.}
-  \item{dx70_1948}{Number of days above 70 degrees in 1948.}
-  \item{dx70_2018}{Number of days above 70 degrees in 2018.}
-  \item{dx90_1948}{Number of days above 90 degrees in 1948.}
-  \item{dx90_2018}{Number of days above 90 degrees in 2018.}
-  }
+\item{station}{Station ID.}
+\item{latitude}{Latitude of the station.}
+\item{longitude}{Longitude of the station.}
+\item{dx70_1948}{Number of days above 70 degrees in 1948.}
+\item{dx70_2018}{Number of days above 70 degrees in 2018.}
+\item{dx90_1948}{Number of days above 90 degrees in 1948.}
+\item{dx90_2018}{Number of days above 90 degrees in 2018.}
+}
 }
 \source{
 \url{https://www.ncdc.noaa.gov/cdo-web/datasets}, retrieved 2019-04-24.
@@ -40,7 +40,6 @@ information for those years.
 # 2018 were discarded for this (simple) data set.
 plot(climate70$longitude, climate70$latitude)
 
-par(mfrow = c(2, 2))
 plot(climate70$dx70_1948, climate70$dx70_2018)
 abline(0, 1, lty = 2)
 plot(climate70$dx90_1948, climate70$dx90_2018)

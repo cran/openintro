@@ -12,7 +12,7 @@
 #'   \item{position}{Field position}
 #'   \item{salary}{Salary (in $1000s)}
 #'   }
-#' @source \url{http://content.usatoday.com/sportsdata/baseball/mlb/salaries/team},
+#' @source \url{https://databases.usatoday.com/mlb-salaries/},
 #' retrieved 2011-02-23.
 #' @keywords datasets
 #' @examples
@@ -35,7 +35,6 @@
 #' axis(2, seq(0, 300, 100))
 #'
 #' # _____ Box plot of log(salary) against position _____ #
-#' par(las = 1, mar = c(4, 8, 1, 1))
 #' boxPlot(log(mlb$salary / 1000), mlb$position, horiz = TRUE, ylab = "")
 #'
 #'

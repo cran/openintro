@@ -7,14 +7,14 @@
 \format{
 A data frame with 54 observations on the following 6 variables.
 \describe{
-  \item{type}{The vehicle type with levels \code{large}, \code{midsize},
-  and \code{small}.}
-  \item{price}{Vehicle price (USD).}
-  \item{mpg_city}{Vehicle mileage in city (miles per gallon).}
-  \item{drive_train}{Vehicle drive train with levels \code{4WD}, \code{front},
-  and \code{rear}.}
-  \item{passengers}{The vehicle passenger capacity.}
-  \item{weight}{Vehicle weight (lbs).}
+\item{type}{The vehicle type with levels \code{large}, \code{midsize},
+and \code{small}.}
+\item{price}{Vehicle price (USD).}
+\item{mpg_city}{Vehicle mileage in city (miles per gallon).}
+\item{drive_train}{Vehicle drive train with levels \code{4WD}, \code{front},
+and \code{rear}.}
+\item{passengers}{The vehicle passenger capacity.}
+\item{weight}{Vehicle weight (lbs).}
 }
 }
 \source{
@@ -34,7 +34,7 @@ These cars represent a random sample for 1993 models that were in both
 \code{small}, \code{midsize}, and \code{large} were include.
 
 Further description can be found in Lock (1993). Use the URL
-\url{http://www.amstat.org/publications/jse/v1n1/datasets.lock.html}.
+\url{http://jse.amstat.org/v1n1/datasets.lock.html}.
 }
 \examples{
 

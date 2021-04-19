@@ -7,13 +7,13 @@
 \format{
 A data frame with 222 observations on the following 2 variables.
 \describe{
-  \item{country}{Name of country.}
-  \item{inf_mort_rate}{Infant mortality rate per 1,000 live births.}
-  }
+\item{country}{Name of country.}
+\item{inf_mort_rate}{Infant mortality rate per 1,000 live births.}
+}
 }
 \source{
 CIA World Factbook,
-\url{https://www.cia.gov/library/publications/the-world-factbook/rankorder/rawdata_2091.txt}.
+\url{https://www.cia.gov/the-world-factbook/field/infant-mortality-rate/country-comparison}.
 }
 \usage{
 infmortrate

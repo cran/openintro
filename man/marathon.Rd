@@ -7,13 +7,13 @@
 \format{
 A data frame with 60 observations on the following 3 variables.
 \describe{
-  \item{year}{Year}
-  \item{gender}{Gender}
-  \item{time}{Running time (in hours)}
- }
+\item{year}{Year}
+\item{gender}{Gender}
+\item{time}{Running time (in hours)}
+}
 }
 \source{
-\url{http://www.webcitation.org/5kx7ilFLp}
+\url{https://www.webcitation.org/5kx7ilFLp}
 }
 \usage{
 marathon

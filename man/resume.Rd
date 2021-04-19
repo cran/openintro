@@ -52,7 +52,8 @@ classified as either lower or higher quality.} }
 \source{
 Bertrand M, Mullainathan S. 2004. "Are Emily and Greg More Employable
 than Lakisha and Jamal? A Field Experiment on Labor Market Discrimination".
-The American Economic Review 94:4 (991-1013). \url{http://www.nber.org/papers/w9873}
+The American Economic Review 94:4 (991-1013).
+\doi{10.3386/w9873}.
 }
 \usage{
 resume
@@ -85,7 +86,7 @@ randomly assigned to the resumes, and the quality and attributes of a resume
 were assigned independent of the race and gender. This means that any
 effects we observe are in fact causal, and the effects related to race are
 both statistically significant and very large: white applicants had about a
-50\% better chance of getting a callback than black candidates.
+50\\% better chance of getting a callback than black candidates.
 
 Do you still have doubts lingering in the back of your mind about the
 validity of this study?  Maybe a counterargument about why the standard

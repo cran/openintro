@@ -6,6 +6,8 @@
 \alias{openintro-package}
 \title{openintro: Data Sets and Supplemental Functions from 'OpenIntro' Textbooks and Labs}
 \description{
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+
 Supplemental functions and data for 'OpenIntro' resources, which 
     includes open-source textbooks and resources for introductory statistics 
     (<https://www.openintro.org/>). The package contains data sets used in our 
@@ -17,7 +19,8 @@ Supplemental functions and data for 'OpenIntro' resources, which
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/OpenIntroStat/openintro}
+  \item \url{http://openintrostat.github.io/openintro/}
+  \item \url{https://github.com/OpenIntroStat/openintro/}
   \item Report bugs at \url{https://github.com/OpenIntroStat/openintro/issues}
 }
 
@@ -29,9 +32,10 @@ Authors:
 \itemize{
   \item David Diez \email{david.m.diez@gmail.com}
   \item Andrew Bray \email{andrew.bray@gmail.com}
-  \item Albert Kim \email{albert.ys.kim@gmail.com}
+  \item Albert Y. Kim \email{albert.ys.kim@gmail.com} (\href{https://orcid.org/0000-0001-7824-306X}{ORCID})
   \item Ben Baumer \email{ben.baumer@gmail.com}
   \item Chester Ismay \email{chester.ismay@gmail.com}
+  \item Nick Paterno \email{nicholas.paterno@gmail.com}
   \item Christopher Barr
 }
 

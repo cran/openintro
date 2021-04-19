@@ -7,13 +7,13 @@
 \format{
 A data frame with 506 observations on the following variable.
 \describe{
-  \item{influence_2016}{Response of the Russian survey participant to the question
-  of whether their government tried to influence the 2016 election in the
-  United States.}
+\item{influence_2016}{Response of the Russian survey participant to the question
+of whether their government tried to influence the 2016 election in the
+United States.}
 }
 }
 \source{
-\url{https://www.pewresearch.org/global/2018/08/21/russians-say-their-government-did-not-try-to-influence-u-s-presidential-election}
+\url{https://www.pewresearch.org/global/2018/08/21/russians-say-their-government-did-not-try-to-influence-u-s-presidential-election/}
 }
 \usage{
 russian_influence_on_us_election_2016

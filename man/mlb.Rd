@@ -7,14 +7,14 @@
 \format{
 A data frame with 828 observations on the following 4 variables.
 \describe{
-  \item{player}{Player name}
-  \item{team}{Team}
-  \item{position}{Field position}
-  \item{salary}{Salary (in $1000s)}
-  }
+\item{player}{Player name}
+\item{team}{Team}
+\item{position}{Field position}
+\item{salary}{Salary (in $1000s)}
+}
 }
 \source{
-\url{http://content.usatoday.com/sportsdata/baseball/mlb/salaries/team},
+\url{https://databases.usatoday.com/mlb-salaries/},
 retrieved 2011-02-23.
 }
 \usage{
@@ -43,7 +43,6 @@ axis(1) #, seq(0, 40, 10))
 axis(2, seq(0, 300, 100))
 
 # _____ Box plot of log(salary) against position _____ #
-par(las = 1, mar = c(4, 8, 1, 1))
 boxPlot(log(mlb$salary / 1000), mlb$position, horiz = TRUE, ylab = "")
 
 
