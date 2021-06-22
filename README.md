@@ -5,8 +5,12 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/openintro)](https://cran.r-project.org/package=openintro)
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![R build
 status](https://github.com/OpenIntroStat/openintro/workflows/R-CMD-check/badge.svg)](https://github.com/OpenIntroStat/openintro/actions)
+[![CRAN RStudio mirror
+downloads](http://cranlogs.r-pkg.org/badges/openintro)](https://cran.r-project.org/package=openintro)
 <!-- badges: end -->
 
 Supplemental functions and data for OpenIntro resources, which includes
@@ -101,7 +105,7 @@ discussion before making the pull request.
     e.g. `library(dplyr)`, `library(ggplot2)`.
 7.  Restart R and run `devtools::load_all()` to make sure the data loads
     and run your examples to confirm they all work.
-8.  Run `devtools::docment()`, restart R, and then
+8.  Run `devtools::document()`, restart R, and then
     `devtools::load_all()`. Then, check out `?name_of_dataset` to make
     sure the documentation looks as expected.
 9.  Run `devtools::check()`. The only NOTE you should see as a result of

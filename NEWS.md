@@ -1,3 +1,11 @@
+# openintro 2.2.0
+
+* Added new datasets:
+  * `lizard_run` and `lizard_habitat` (thanks Stephen Adolph!)
+  * `daycare_fines`, `biontech_adolescents`, `nyc_marathon`, `epa2021`, `duke_forest`
+* Add tests for some of the new datasets
+* Better terminology: `sex_discrimination`
+
 # openintro 2.1.0
 
 * Added `LazyDataCompression: xz` to DESCRIPTION per CRAN.
