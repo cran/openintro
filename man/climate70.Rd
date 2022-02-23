@@ -17,7 +17,7 @@ A data frame with 197 observations on the following 7 variables.
 }
 }
 \source{
-\url{https://www.ncdc.noaa.gov/cdo-web/datasets}, retrieved 2019-04-24.
+\url{https://www.ncdc.noaa.gov/cdo-web}, retrieved 2019-04-24.
 }
 \usage{
 climate70
@@ -49,6 +49,5 @@ hist(climate70$dx90_2018 - climate70$dx90_1948)
 
 t.test(climate70$dx70_2018 - climate70$dx70_1948)
 t.test(climate70$dx90_2018 - climate70$dx90_1948)
-
 }
 \keyword{datasets}

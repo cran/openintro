@@ -1,7 +1,7 @@
 Package: openintro
 Title: Data Sets and Supplemental Functions from 'OpenIntro' Textbooks
         and Labs
-Version: 2.2.0
+Version: 2.3.0
 Authors@R: c(
     person("Mine", "\u00C7etinkaya-Rundel", email = "cetinkaya.mine@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-6452-2420")),
     person("David", "Diez", email = "david.m.diez@gmail.com", role = c("aut")),
@@ -23,7 +23,7 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 LazyDataCompression: xz
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Suggests: broom, dplyr, forcats, knitr, lubridate, scales, testthat (>=
         3.0.0), tidyr, tidytext
 Imports: ggplot2 (>= 2.2.1), graphics, readr, rmarkdown, tibble
@@ -34,7 +34,7 @@ BugReports: https://github.com/OpenIntroStat/openintro/issues
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2021-06-22 14:56:47 UTC; mine
+Packaged: 2022-02-23 02:30:15 UTC; mine
 Author: Mine Çetinkaya-Rundel [aut, cre]
     (<https://orcid.org/0000-0001-6452-2420>),
   David Diez [aut],
@@ -46,4 +46,4 @@ Author: Mine Çetinkaya-Rundel [aut, cre]
   Christopher Barr [aut]
 Maintainer: Mine Çetinkaya-Rundel <cetinkaya.mine@gmail.com>
 Repository: CRAN
-Date/Publication: 2021-06-22 15:20:02 UTC
+Date/Publication: 2022-02-23 12:50:05 UTC

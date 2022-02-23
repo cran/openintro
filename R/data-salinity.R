@@ -5,7 +5,7 @@
 #'
 #' @format A data frame with 30 rows and 2 variables.
 #' \describe{
-#'   \item{site_number}{Location where measurments were taken.}
+#'   \item{site_number}{Location where measurements were taken.}
 #'   \item{salinity_ppt}{Salinity value in parts per thousand.}
 #' }
 #' @source Till, R. (1974) Statistical Methods for the Earth Scientist: An Introduction. London: Macmillon, 104.
@@ -19,5 +19,4 @@
 #'   facet_wrap(~site_number, ncol = 1)
 #'
 #' tidy(aov(salinity_ppt ~ site_number, data = salinity))
-#'
 "salinity"

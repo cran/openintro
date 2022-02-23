@@ -6,7 +6,7 @@
 #'
 #' @format A data frame with 31 rows and 3 variables.
 #' \describe{
-#'   \item{site}{Location where measurments were taken.}
+#'   \item{site}{Location where measurements were taken.}
 #'   \item{date}{Date measurements were taken.}
 #'   \item{flow}{Flow rate of the river in cubic feet per second.}
 #' }
@@ -20,7 +20,7 @@
 #'   labs(
 #'     title = "River flow rates by site",
 #'     x = "Site",
-#'     y = expression(paste("Flow (ft"^3*"/s)"))
+#'     y = expression(paste("Flow (ft"^3 * "/s)"))
 #'   )
 #'
 #' # River flow rates over time
@@ -29,10 +29,9 @@
 #'   labs(
 #'     title = "River flow rates over time",
 #'     x = "Date",
-#'     y = expression(paste("Flow (ft"^3*"/s)")),
+#'     y = expression(paste("Flow (ft"^3 * "/s)")),
 #'     color = "Site", shape = "Site"
 #'   )
-#'
 #' @source [Pierce County Water Data Viewer](https://waterquality.piercecountywa.org/applications/public.html?publicuser=Guest#waterdata/stationoverview).
 #'
 "flow_rates"

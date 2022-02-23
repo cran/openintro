@@ -16,7 +16,7 @@ A data frame with 45341 observations on the following 3 variables.
 \url{https://data.london.gov.uk/dataset/ordnance-survey-code-point}
 
 Contains Ordinance Survey data released under the
-\href{http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/}{Open Government License, OGL v2}.
+\href{https://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/}{Open Government License, OGL v2}.
 }
 \usage{
 london_boroughs
@@ -53,7 +53,6 @@ london_murders_counts <- london_murders \%>\%
   add_tally()
 
 london_murders_counts
-
 \dontrun{
 # Add number of murders to geographic boundary data
 london_boroughs_murders <- inner_join(london_boroughs, london_murders_counts, by = "borough")
@@ -61,7 +60,7 @@ london_boroughs_murders <- inner_join(london_boroughs, london_murders_counts, by
 # Map murders
 ggplot(london_boroughs_murders) +
   geom_polygon(aes(x = x, y = y, group = borough, fill = n), colour = "white") +
-    scale_fill_distiller(direction = 1) +
+  scale_fill_distiller(direction = 1) +
   labs(x = "Easting", y = "Northing", fill = "Number of murders")
 }
 }

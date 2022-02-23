@@ -7,7 +7,7 @@
 \format{
 A data frame with 31 rows and 3 variables.
 \describe{
-\item{site}{Location where measurments were taken.}
+\item{site}{Location where measurements were taken.}
 \item{date}{Date measurements were taken.}
 \item{flow}{Flow rate of the river in cubic feet per second.}
 }
@@ -33,7 +33,7 @@ ggplot(flow_rates, aes(x = site, y = flow)) +
   labs(
     title = "River flow rates by site",
     x = "Site",
-    y = expression(paste("Flow (ft"^3*"/s)"))
+    y = expression(paste("Flow (ft"^3 * "/s)"))
   )
 
 # River flow rates over time
@@ -42,9 +42,8 @@ ggplot(flow_rates, aes(x = date, y = flow, color = site, shape = site)) +
   labs(
     title = "River flow rates over time",
     x = "Date",
-    y = expression(paste("Flow (ft"^3*"/s)")),
+    y = expression(paste("Flow (ft"^3 * "/s)")),
     color = "Site", shape = "Site"
   )
-
 }
 \keyword{datasets}

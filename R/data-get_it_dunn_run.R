@@ -21,14 +21,16 @@
 #'   \item{run_time_minutes}{Run time, in minutes.}
 #'   }
 #' @source Data were collected from GSE Timing:
-#' [2018 data](https://www.gsetiming.com/results/fitness_events/results.asp?event_type=5&event_id=718),
-#' [2017 race data](https://www.gsetiming.com/results/fitness_events/results.asp?event_type=5&event_id=640).
+#' [2018 data](https://gsetiming.com/results/fitness_events/results.asp?event_type=5&event_id=718),
+#' [2017 race data](https://gsetiming.com/results/fitness_events/results.asp?event_type=5&event_id=640).
 #' @keywords datasets
 #' @examples
 #'
-#' d <- subset(get_it_dunn_run,
-#'     race == "5k" & date == "2018-05-12" &
-#'         !is.na(age) & state %in% c("MN", "WI"))
+#' d <- subset(
+#'   get_it_dunn_run,
+#'   race == "5k" & date == "2018-05-12" &
+#'     !is.na(age) & state %in% c("MN", "WI")
+#' )
 #' head(d)
 #' m <- lm(run_time_minutes ~ sex + age + state, d)
 #' summary(m)
@@ -36,5 +38,4 @@
 #' boxplot(m$residuals ~ d$sex)
 #' plot(m$residuals ~ d$age)
 #' hist(m$residuals)
-#'
 "get_it_dunn_run"
