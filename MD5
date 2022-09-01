@@ -1,6 +1,6 @@
-df34a81a33f9bc5bd67365d154f66da1 *DESCRIPTION
+6b28ce83fdc680ea026a930ef1e68fff *DESCRIPTION
 ec6848e941d1596fb00cb4697d9b3471 *NAMESPACE
-bfd8857e44a09a7714b6d6b6aecba956 *NEWS.md
+bb5c8500550cf8f7f83760f187c48e68 *NEWS.md
 27164d08941731148bd53a60df60cc3e *R/ArrowLines.R
 ca7923f17d869a23c3a40f78db78a4b7 *R/AxisInDollars.R
 c5f39000fd49a51917bb63c4052cc90e *R/AxisInPercent.R
@@ -44,9 +44,9 @@ fd4119e6dd0a28a3c96cd0cb84d005d5 *R/data-burger.R
 1c868ec5c837827242dd780f3a00dd4a *R/data-cards.R
 2984addfb054bafe0077ff47d7a6fd51 *R/data-cars93.R
 f02fe99373391fa1e5068ae4983fef59 *R/data-cchousing.R
-4ab794e84c7ca0d800fb27ee75791072 *R/data-census.R
+e7e1cb640faebcb0a3148d43ba740a0e *R/data-census.R
 287cf331432fd53ae1d3110ae61bdeb2 *R/data-cherry.R
-5fda75352bc83903ef00a606046512fe *R/data-children_gender_stereo.R
+bae65ebfde6828f13c78984e2981fbaf *R/data-children_gender_stereo.R
 e35a319c9af7fd58aecd67c1440b1fbe *R/data-china.R
 3585a8552edcad43c2472b67352f0c3f *R/data-cia_factbook.R
 fd822ee672e07894f05ccba3162a9f57 *R/data-classdata.R
@@ -117,7 +117,7 @@ a9ccf773998808886350dd81ff677390 *R/data-hsb2.R
 2753d53845523cb1081f692da6bf0604 *R/data-ipod.R
 1b25beac1b8a757f85ed8ce63be527ac *R/data-jury.R
 065c67b8ce3201c47c1857a7b3c61e51 *R/data-kobe_basket.R
-37b6af22e4a44965c7b2a8904657626e *R/data-labor_market_discrimination.R
+89fe5b46bd653374a5c8d4d1369b0efe *R/data-labor_market_discrimination.R
 f99307707a96a7ccc4255fcffb43e80f *R/data-law_resume.R
 73b0c0a4bee5426480125f17715e68fd *R/data-leg_mari.R
 d0be1bb2242f7fb3e526362433033fec *R/data-lizard_habitat.R
@@ -174,7 +174,7 @@ aed047eafb3437d9b6f881f0a4099564 *R/data-president.R
 fa4819be03f8eaf8d66e8337ecd032ca *R/data-prison.R
 75639e50f1a1e2e6646ecdc3255fcc1b *R/data-prius_mpg.R
 8e64fa762c1a2ac7459b82bcd438824d *R/data-race_justice.R
-e65d6e0172089f0a687d9bb64ea48b77 *R/data-reddit_finance.R
+abf79acd7162dd295fccc30d19a4e4c0 *R/data-reddit_finance.R
 429af62921d0d9735ad7b1aabbb5d747 *R/data-res_demo.R
 812a254f2e3fb257be06942e57343316 *R/data-resume.R
 814dd20f2304bafa519403c33087ff5e *R/data-rosling_responses.R
@@ -182,7 +182,7 @@ e65d6e0172089f0a687d9bb64ea48b77 *R/data-reddit_finance.R
 b490e03ec06e7885a6c25fcd1dd9c966 *R/data-sa_gdp_elec.R
 1dff5e3ccecd49c7e029720bb7aca0f5 *R/data-salinity.R
 a271cf7fefe848affa39200bf3eb9c0b *R/data-sat_improve.R
-dfac6d6270f51f19b25334f63cfe4665 *R/data-satgpa.R
+33388366cb9c792c7178bc5f6a6a4d7e *R/data-satgpa.R
 d47801c4e7fd75bb7f40ee1ef9f146d0 *R/data-scotus_healthcare.R
 c695f006dba904ab79ccd871abcf2fb5 *R/data-seattlepets.R
 81105aab440742e916075122531d3802 *R/data-sex_discrimination.R
@@ -201,7 +201,7 @@ c75dfb25910b82b22b6eb452daf4cc63 *R/data-sowc_child_mortality.R
 e418d8ce72a3dc69bc4e698bcba8d5a4 *R/data-sowc_demographics.R
 7e799d48aeb4e8137104fa1e24e1c247 *R/data-sowc_maternal_newborn.R
 8a914518979a7d3f9f3573ca7ec63173 *R/data-sp500.R
-bc858b7cad40ec9b014ce8ebf3f3d990 *R/data-sp500_1950_2018.R
+e82954425aaa6754c7c567e65a102d25 *R/data-sp500_1950_2018.R
 b11d5ef78fae31e818c0762786d29724 *R/data-sp500_seq.R
 279e941e635a7caf6e099a2935e79232 *R/data-speed_gender_height.R
 018e745fd003ffa88b56e71b71c1dad9 *R/data-ssd_speed.R
@@ -254,10 +254,10 @@ d0ae936c35e3c780c58c061643a75ead *R/normTail.R
 536d7b474bf5db1dc646ff648ce8b8fc *R/qqnormsim.R
 9c1af9685701ae745586c0d2c8fd61ab *R/scale-openintro.R
 accb3c9799698c09d4bed78d5fe3904f *R/treeDiag.R
-25af0b0330edde5c21a0a781e4a200d6 *R/write_pkg_data.R
+fd726f3e15078d29598aebb10db64bb2 *R/write_pkg_data.R
 14e9a989fe1c8ed06d05a7ba5664a43e *README.md
-a76c829baeaa96838c6ae2d22fbfcaf3 *build/partial.rdb
-5710d9901061fcec58ad457946192823 *build/vignette.rds
+0c6ad5b3446721162c89589e8077ab1c *build/partial.rdb
+2f13ab178740e2a0472f2d94651740c8 *build/vignette.rds
 21180d2f927ba5a257120630bef8ba29 *data/COL.rda
 6d47bd2260123c462a36b3808e14a090 *data/IMSCOL.rda
 a4eee2f447b9081f9c35b893f53d50bb *data/absenteeism.rda
@@ -483,7 +483,7 @@ f943becca426944d055bc00bd81fe973 *data/yawn.rda
 9ee0fca730157cf6d082e66651319a46 *data/yrbss.rda
 082d1e41cf26c1c0366963d05ecd2bce *data/yrbss_samp.rda
 9ce13c391160aef1980bb914fc81f9e9 *inst/doc/datasets.Rmd
-30ee754d4ed39b5ad5ea80264c93bf0d *inst/doc/datasets.html
+7d8dc6007e78b35454a1f6b998d4de43 *inst/doc/datasets.html
 b44c3fb01a0619c0fcabc134dd3db1aa *inst/rmarkdown/templates/lab1/skeleton/skeleton.Rmd
 fb603f4603acee9fe3933d36c4a7fe18 *inst/rmarkdown/templates/lab1/template.yaml
 08735613bf9c1db4fc159e6f5d7acf82 *inst/rmarkdown/templates/lab_report/skeleton/skeleton.Rmd
@@ -530,9 +530,9 @@ dc2e61aee58868cad6de2325d8c4f6f1 *man/boxPlot.Rd
 b8a3e8f8d026ba8043afcf12539bc3bb *man/cards.Rd
 49a32a7ca5e0ac61c1a4ba3770740150 *man/cars93.Rd
 7cc303a6bf9263111508cb4ff26d9bdc *man/cchousing.Rd
-fad7d94fba746ba8fdb23d9ef6f20fda *man/census.Rd
+a21e8ec134df4edf836c40a1996412d8 *man/census.Rd
 a879330445e317dde9056d328b1526bb *man/cherry.Rd
-80f80461a0f1cc0d425f8aa3760e67f1 *man/children_gender_stereo.Rd
+5e7a1c9024fc029f7f533c69bfb3c23d *man/children_gender_stereo.Rd
 94ded22be52cab49c7a1bc053e29037d *man/china.Rd
 e870e6dd890060462178bcc4aa5b510e *man/cia_factbook.Rd
 cd06436a30634a176e23962de5ae98a7 *man/classdata.Rd
@@ -656,7 +656,7 @@ d95f73ce46cf2e313385394740d3d371 *man/nuclear_survey.Rd
 3cba27ce64eb6d2099f01aebde898cb8 *man/nyc_marathon.Rd
 37ccdfb2d1c5454e5debd8123697bf09 *man/nycflights.Rd
 f82ac2edb95d337fb3802839d8dd0ec0 *man/offshore_drilling.Rd
-d7aeae253ba96ccd91b6dd1d390f6dba *man/openintro-package.Rd
+1bacd8417a4925963759034396ddd06a *man/openintro-package.Rd
 bb46cfafcd0439e6621071aadd6f4927 *man/openintro_colors.Rd
 38ce68f98c71e08d95a25a2e5b6a3e64 *man/openintro_cols.Rd
 51b9aa48b8622df877edd7d347eb732d *man/openintro_pal.Rd
@@ -682,7 +682,7 @@ ba84c1d7cf2167a55288a98db4d31b00 *man/president.Rd
 f757f4a3c33540a75e6cc51ce503a0b0 *man/prius_mpg.Rd
 648336f79c4fd5b08cf8130fd7e9ed30 *man/qqnormsim.Rd
 ec6d1bd00dd043ca9be973bcbc22b1a8 *man/race_justice.Rd
-7275955231a24810518924f5a8b8a773 *man/reddit_finance.Rd
+d94227d4d7645cb90b5a2d25c48ce8dd *man/reddit_finance.Rd
 4fa5491e916a635cde058acc078df441 *man/res_demo_1.Rd
 0b1f1dcf2f57e1531679d41d2dbdb48b *man/res_demo_2.Rd
 ba51ad0e048ca0635b142828a7822728 *man/resume.Rd
@@ -691,7 +691,7 @@ b314d2e2bcf18f4d8deb39cdd28c7de5 *man/russian_influence_on_us_election_2016.Rd
 633d2a62f7dadb46544aab142e492bc6 *man/sa_gdp_elec.Rd
 15b50983346222b7a9aa613af44f96d5 *man/salinity.Rd
 d3fce9e81a24c39493849d0ffb0e7759 *man/sat_improve.Rd
-39646d0db3127df136be1e70b9e0b909 *man/satgpa.Rd
+4f327a3b9e0d202f5d5e6c0d16d23b41 *man/satgpa.Rd
 9f670c5b9a9e07094897b9f84ae2124a *man/scale_color_openintro.Rd
 f3ad747d67ccfe92260bf8c6dc263b48 *man/scale_fill_openintro.Rd
 deb94f0a58d789003953e1cf3fa866e5 *man/scotus_healthcare.Rd
@@ -712,7 +712,7 @@ f1ca63b68e61b1893234fadf54a984f8 *man/sowc_child_mortality.Rd
 e6c1d04f40d6412bdb8b8cd3fe558bb7 *man/sowc_demographics.Rd
 5c9d4e86218257a5b3415b7681ea12b8 *man/sowc_maternal_newborn.Rd
 b26dd1ffa096bb53dcdb1cfdee0d7705 *man/sp500.Rd
-151ab9858e2ce7f7138e859f5358a78e *man/sp500_1950_2018.Rd
+f0918cab0ca7b240459c86b470c9f2b1 *man/sp500_1950_2018.Rd
 4bd8416c2b0d5a602e55dd5c274cce4e *man/sp500_seq.Rd
 fb7c025a4c9b23e03f481d292a3157f8 *man/speed_gender_height.Rd
 04e45ec37f00341d57e0fa4ffaa16407 *man/ssd_speed.Rd
