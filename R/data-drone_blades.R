@@ -1,6 +1,6 @@
 #' Quadcopter Drone Blades
 #'
-#' Quality control data set for quadcopter drone blades, where this data has
+#' Quality control dataset for quadcopter drone blades, where this data has
 #' been made up for an example.
 #'
 #'
@@ -17,6 +17,6 @@
 #'
 #' library(dplyr)
 #'
-#' drone_blades %>%
+#' drone_blades |>
 #'   count(supplier, inspection)
 "drone_blades"

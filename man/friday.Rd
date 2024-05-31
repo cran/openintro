@@ -25,7 +25,7 @@ Friday the 13th Bad For Your Health?," BMJ, 307, 1584-1586.
 friday
 }
 \description{
-This data set addresses issues of how superstitions regarding Friday the
+This dataset addresses issues of how superstitions regarding Friday the
 13th affect human behavior, and whether Friday the 13th is an unlucky day.
 Scanlon, et al. collected data on traffic and shopping patterns and accident
 frequency for Fridays the 6th and 13th between October of 1989 and November
@@ -45,14 +45,14 @@ accidents.
 library(dplyr)
 library(ggplot2)
 
-friday \%>\%
-  filter(type == "traffic") \%>\%
+friday |>
+  filter(type == "traffic") |>
   ggplot(aes(x = sixth)) +
   geom_histogram(binwidth = 2000) +
   xlim(110000, 140000)
 
-friday \%>\%
-  filter(type == "traffic") \%>\%
+friday |>
+  filter(type == "traffic") |>
   ggplot(aes(x = thirteenth)) +
   geom_histogram(binwidth = 2000) +
   xlim(110000, 140000)

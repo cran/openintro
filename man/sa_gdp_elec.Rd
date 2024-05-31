@@ -19,7 +19,7 @@ A data frame with 16 rows and 7 variables.
 \source{
 \itemize{
 \item \href{https://databank.worldbank.org/source/world-development-indicators}{World Bank I}
-\item \href{https://www.worldbank.org/en/programs/business-enabling-environment}{World Bank II}
+\item \href{https://www.worldbank.org/en/businessready?topic=trading-across-borders}{World Bank II}
 \item \href{https://www.climatewatchdata.org}{Carbon Dioxide Information Analysis Center, Environmental Sciences Division, Oak Ridge National Laboratory}
 }
 }
@@ -32,11 +32,13 @@ Includes yearly data on gdp, gni, co2 emissions, start up costs.
 \examples{
 library(ggplot2)
 
-ggplot(sa_gdp_elec, aes(year, access_elec))+
- geom_point(alpha = 0.3) +
- labs( x= "Year",
-       y = "Percent of Population",
-       title = "Access to Electricity in South Africa 2003 - 2018")
+ggplot(sa_gdp_elec, aes(year, access_elec)) +
+  geom_point(alpha = 0.3) +
+  labs(
+    x = "Year",
+    y = "Percent of Population",
+    title = "Access to Electricity in South Africa 2003 - 2018"
+  )
 
 }
 \keyword{datasets}

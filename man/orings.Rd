@@ -14,7 +14,7 @@ A data frame with 23 observations on the following 4 variables.
 }
 }
 \source{
-\url{https://archive.ics.uci.edu/ml/datasets/Challenger+USA+Space+Shuttle+O-Ring}
+\url{https://archive.ics.uci.edu/dataset/92/challenger+usa+space+shuttle+o+ring}
 }
 \usage{
 orings
@@ -41,9 +41,9 @@ library(broom)
 # data frame to predict probability of O-ring damage based
 # on temperature using logistic regression.
 
-orings_long <- orings \%>\%
-  pivot_longer(cols = c(damaged, undamaged), names_to = "outcome", values_to = "n") \%>\%
-  uncount(n) \%>\%
+orings_long <- orings |>
+  pivot_longer(cols = c(damaged, undamaged), names_to = "outcome", values_to = "n") |>
+  uncount(n) |>
   mutate(outcome = fct_relevel(outcome, "undamaged", "damaged"))
 
 orings_mod <- glm(outcome ~ temperature, data = orings_long, family = "binomial")

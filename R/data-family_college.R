@@ -1,6 +1,6 @@
 #' Simulated sample of parent / teen college attendance
 #'
-#' A simulated data set based on real population summaries.
+#' A simulated dataset based on real population summaries.
 #'
 #'
 #' @name family_college
@@ -17,6 +17,6 @@
 #'
 #' library(dplyr)
 #'
-#' family_college %>%
+#' family_college |>
 #'   count(teen, parents)
 "family_college"

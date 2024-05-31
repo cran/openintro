@@ -13,7 +13,7 @@ A tbl_df with with 82 rows and 3 variables:
 }
 }
 \source{
-These data are excerpted from the \code{Arbuthnot} data set in the
+These data are excerpted from the \code{Arbuthnot} dataset in the
 \href{https://CRAN.R-project.org/package=HistData}{HistData} package.
 }
 \usage{
@@ -40,8 +40,8 @@ ggplot(arbuthnot, aes(x = year, y = boys + girls, group = 1)) +
   geom_line()
 
 # Boys and girls
-arbuthnot \%>\%
-  pivot_longer(cols = -year, names_to = "sex", values_to = "n") \%>\%
+arbuthnot |>
+  pivot_longer(cols = -year, names_to = "sex", values_to = "n") |>
   ggplot(aes(x = year, y = n, color = sex, group = sex)) +
   geom_line()
 }

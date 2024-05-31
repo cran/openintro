@@ -15,15 +15,17 @@
 #' }
 #' @source
 #' - [World Bank I](https://databank.worldbank.org/source/world-development-indicators)
-#' - [World Bank II](https://www.worldbank.org/en/programs/business-enabling-environment)
+#' - [World Bank II](https://www.worldbank.org/en/businessready?topic=trading-across-borders)
 #' - [Carbon Dioxide Information Analysis Center, Environmental Sciences Division, Oak Ridge National Laboratory](https://www.climatewatchdata.org)
 #' @examples
 #' library(ggplot2)
 #'
-#' ggplot(sa_gdp_elec, aes(year, access_elec))+
-#'  geom_point(alpha = 0.3) +
-#'  labs( x= "Year",
-#'        y = "Percent of Population",
-#'        title = "Access to Electricity in South Africa 2003 - 2018")
+#' ggplot(sa_gdp_elec, aes(year, access_elec)) +
+#'   geom_point(alpha = 0.3) +
+#'   labs(
+#'     x = "Year",
+#'     y = "Percent of Population",
+#'     title = "Access to Electricity in South Africa 2003 - 2018"
+#'   )
 #'
 "sa_gdp_elec"
