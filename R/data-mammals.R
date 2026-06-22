@@ -16,7 +16,7 @@
 #' \describe{
 #'   \item{species}{Species of mammals}
 #'   \item{body_wt}{Total body weight of the mammal (in kg)}
-#'   \item{brain_wt}{Brain weight of the mammal (in kg)}
+#'   \item{brain_wt}{Brain weight of the mammal (in g)}
 #'   \item{non_dreaming}{Number of hours of non dreaming sleep}
 #'   \item{dreaming}{Number of hours of dreaming sleep}
 #'   \item{total_sleep}{Total number of hours of sleep}
@@ -32,7 +32,7 @@
 #' }
 #' @references T. Allison and D. Cicchetti, "Sleep in mammals: ecological and
 #' constitutional correlates," Arch. Hydrobiol, vol. 75, p. 442, 1975.
-#' @source \url{http://www.statsci.org/data/general/sleep.txt}
+#' @source \url{https://gksmyth.github.io/ozdasl/general/sleep.txt}
 #' @keywords datasets
 #' @examples
 #'
@@ -41,5 +41,5 @@
 #' ggplot(mammals, aes(x = log(body_wt), y = log(brain_wt))) +
 #'   geom_point() +
 #'   geom_smooth(method = "lm") +
-#'   labs(x = "Log of body weight", x = "Log of brain weight")
+#'   labs(x = "Log of body weight", y = "Log of brain weight")
 "mammals"
